@@ -90,7 +90,7 @@ export default function Home() {
                   ${visible ? "translate-x-0 opacity-100" : "-translate-x-32 opacity-0"}`}
               >
                 <h2 className="text-4xl font-bold mb-4">Welcome to My Portfolio</h2>
-                <p className="text-lg text-white dark:text-gray-200">This is an animated section. As you scroll, both this text and the image will slide in from the left to reveal more about me and my work.</p>
+                <p className="text-lg text-white dark:text-gray-200">Lorem ipsum dolor sit amet consectetur adipiscing elit. Amet consectetur adipiscing elit quisque faucibus ex sapien. Quisque faucibus ex sapien vitae pellentesque sem placerat. Vitae pellentesque sem placerat in id cursus mi.</p>
               </div>
                 <div
                 className={`flex-1 max-w-[30vw]
