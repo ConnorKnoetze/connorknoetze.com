@@ -243,10 +243,6 @@ export default function Home() {
               style={exitStyle2}
             >
               <h2 className="text-3xl font-bold mb-4">Second Sticky Section</h2>
-              <p className="text-lg text-gray-800">
-                This section appears after scrolling past the first, sticks to the
-                top, and animates out as you scroll past it.
-              </p>
             </div>
           </div>
           <div id="About" className="relative w-full h-[150vh] flex items-start justify-center">
@@ -257,10 +253,6 @@ export default function Home() {
               style={exitStyle3}
             >
               <h2 className="text-3xl font-bold mb-4">Third Sticky Section</h2>
-              <p className="text-lg text-gray-800">
-                This section appears after scrolling past the second, sticks to the
-                top, and animates out as you scroll past it.
-              </p>
             </div>
           </div>
           {/* Placeholder for page length */}
