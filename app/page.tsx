@@ -178,13 +178,13 @@ export default function Home() {
         {/* Main Content */}
         <main
           id="main"
-          className="flex flex-col gap-[32px] flex-1 items-center sm:items-start pl-8 ml-[100px]"
+          className="flex flex-col gap-[32px] flex-1 items-center sm:items-start pl-8 ml-[7vw]"
         >
           {/* Sticky Animated Section Container at the top */}
           <div className="relative w-full h-[100vh] flex items-start justify-center">
             <div
               ref={sectionRef}
-              className="sticky top-10 flex flex-row items-center w-full h-screen min-h-[300px] justify-center"
+              className="sticky pt-10 flex flex-row items-center w-full h-screen min-h-[300px] justify-center"
               style={exitStyle}
             >
               {/* Textbox */}
@@ -238,7 +238,7 @@ export default function Home() {
           <div id="Abilities" className="relative w-full h-[150vh] flex items-start justify-center">
             <div
               ref={sectionRef2}
-              className={`sticky top-10 flex flex-row items-center w-full h-screen min-h-[300px] justify-center p-5 bg-white transition-all duration-700 ease-out
+              className={`sticky top-[20vh] flex flex-row items-center w-full h-[60vh] min-h-[300px] justify-center p-5 bg-white transition-all duration-700 ease-out
                 ${hasAnimatedIn2 ? (visible2 ? 'translate-x-0 opacity-100' : '-translate-x-32 opacity-0 pointer-events-none') : 'opacity-0 pointer-events-none'}`}
               style={exitStyle2}
             >
@@ -248,16 +248,21 @@ export default function Home() {
           <div id="About" className="relative w-full h-[150vh] flex items-start justify-center">
             <div
               ref={sectionRef3}
-              className={`sticky top-10 flex flex-row items-center w-full h-screen min-h-[300px] justify-center p-5 bg-white transition-all duration-700 ease-out
+              className={`sticky top-[20vh] flex flex-row items-center w-full h-[60vh] min-h-[300px] justify-center p-5 bg-white transition-all duration-700 ease-out
                 ${hasAnimatedIn3 ? (visible3 ? 'translate-x-0 opacity-100' : '-translate-x-32 opacity-0 pointer-events-none') : 'opacity-0 pointer-events-none'}`}
               style={exitStyle3}
             >
               <h2 className="text-3xl font-bold mb-4">Third Sticky Section</h2>
             </div>
           </div>
-          {/* Placeholder for page length */}
-          <div className="h-[2000px] w-full"></div>
+        <div className="h-[20vh]"></div>
         </main>
+      </div>
+      {/* Footer */}
+      <div className="row-start-3 w-full">
+        <footer className="w-full bg-night h-[35vh] bottom-0 left-0 z-30">
+          {/* Footer content goes here */}
+        </footer>
       </div>
     </div>
   );
