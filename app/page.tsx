@@ -178,13 +178,13 @@ export default function Home() {
         {/* Main Content */}
         <main
           id="main"
-          className="flex flex-col gap-[32px] flex-1 items-center sm:items-start pl-8 ml-[7vw]"
+          className="flex flex-col gap-[32px] flex-1 items-center sm:items-start pl-10 ml-[7vw]"
         >
           {/* Sticky Animated Section Container at the top */}
           <div className="relative w-full h-[100vh] flex items-start justify-center">
             <div
               ref={sectionRef}
-              className="sticky pt-10 flex flex-row items-center w-full h-screen min-h-[300px] justify-center"
+              className="sticky flex flex-row items-center w-full h-screen min-h-[300px] justify-center"
               style={exitStyle}
             >
               {/* Textbox */}
@@ -199,10 +199,10 @@ export default function Home() {
                   faucibus ex sapien vitae pellentesque sem placerat. Vitae
                   pellentesque sem placerat in id cursus mi.
                 </p>
-                <li className="p-5 flex items-center justify-center">
+                <li className="pt-5 pb-5 flex items-center justify-center border-b-2 border-cocoa_bean">
                   <a className="p-5 m-3.5 rounded-xl bg-dark_maroon hover:bg-cocoa_bean transition-colors duration-350" 
-                    href="#Abilities">
-                    Abilities
+                    href="#My Skills">
+                    My Skills
                   </a>
                     <a
                     className="p-5 m-3.5 rounded-xl bg-dark_maroon hover:bg-cocoa_bean transition-colors duration-350"
@@ -235,17 +235,64 @@ export default function Home() {
           </div>
 
           {/* Second Sticky Animated Section */}
-          <div id="Abilities" className="relative w-full h-[150vh] flex items-start justify-center">
+          <div id="My Skills" className="relative w-full h-[100vh] flex items-start justify-center">
             <div
               ref={sectionRef2}
-              className={`sticky top-[20vh] flex flex-row items-center w-full h-[60vh] min-h-[300px] justify-center p-5 bg-white transition-all duration-700 ease-out
+              className={`sticky top-[25vh] flex flex-row items-center w-full h-[50vh] min-h-[300px] justify-center transition-all duration-700 ease-out 
                 ${hasAnimatedIn2 ? (visible2 ? 'translate-x-0 opacity-100' : '-translate-x-32 opacity-0 pointer-events-none') : 'opacity-0 pointer-events-none'}`}
               style={exitStyle2}
-            >
-              <h2 className="text-3xl font-bold mb-4">Second Sticky Section</h2>
+            > 
+              <div className="flex flex-col w-full h-full max-w-[50vh] bg-licorice border-2 rounded-xl border-licorice">
+                <div className="flex flex-1 w-full h-1/6 items-end pb-5 justify-center min-w-70"
+                >
+                  <h1 className="text-4xl font-bold ">My Skills</h1>
+                </div>  
+                <div className="flex flex-1 flex-row w-full h-full">
+                  <div className="flex flex-[1] flex-col w-full h-full items-center justify-center p-1"
+                  >
+                    <Image 
+                    src="/python.png"
+                    alt="Profile"
+                    width={100}
+                    height={100}
+                    />
+                  </div>
+                  <div className="flex flex-[1] flex-col w-full h-full items-center justify-center p-1 border-t-2 border-cocoa_bean"
+                  >
+                    <Image 
+                    src="/java.png"
+                    alt="Profile"
+                    width={100}
+                    height={100}
+                    />
+                  </div>
+                  <div className="flex flex-[1] flex-col w-full h-full items-center justify-center p-1 border-t-2 border-cocoa_bean"
+                  >
+                    <Image 
+                    src="/c_lang.png"
+                    alt="Profile"
+                    width={100}
+                    height={100}
+                    />
+                  </div>
+                  <div className="flex flex-[1] flex-col w-full h-full items-center justify-center p-1"
+                  >
+                    <Image 
+                    src="/cpp.png"
+                    alt="Profile"
+                    width={100}
+                    height={100}
+                    />
+                  </div>
+                  
+                </div> 
+                <div className="flex flex-[0.5] w-full items-center justify-center min-w-70"
+                ></div> 
+              </div>
+              <div className="w-full h-full"></div> 
             </div>
           </div>
-          <div id="About" className="relative w-full h-[150vh] flex items-start justify-center">
+          <div id="About" className="relative w-full h-[100vh] flex items-start justify-center">
             <div
               ref={sectionRef3}
               className={`sticky top-[20vh] flex flex-row items-center w-full h-[60vh] min-h-[300px] justify-center p-5 bg-white transition-all duration-700 ease-out
