@@ -75,8 +75,8 @@ export default function Home() {
       }
       const buffer = 40;
       const startFade = window.innerHeight * 0.7 - buffer;
-      const duration = window.innerHeight * 0.7 + buffer * 2;
-      let progress = (relativeScroll - startFade) / duration;
+      const duration = window.innerHeight * 0.7 + buffer * 3;
+      let progress = (relativeScroll - startFade) / duration ;
       progress = Math.max(0, Math.min(1, progress));
       setExitProgress2(progress);
     };
@@ -133,7 +133,7 @@ export default function Home() {
   const scrollDir = useScrollDirection();
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-6 pb-0 gap-0 sm:p-0 font-[family-name:var(--font-geist-sans)]">
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-6 pb-0 gap-0 sm:p-0 font-[family-name:var(--font-geist-sans)] bg-gradient-to-bl from-tuna via-gondola to-diesel ">
       <div className="row-start-2 w-full flex min-h-screen items-center">
         {/* Vertical Navigation Menu */}
         <nav className="flex flex-col gap-10 border-r-3 border-t-3 border-b-3 border-cocoa_bean min-w-[60px] items-left h-auto fixed top-1/2 left-0 -translate-y-1/2 z-20 bg-gray-600 dark:bg-licorice shadow-lg rounded-r-xl pt-5 pb-5 pl-5 pr-1 justify-center">
@@ -178,7 +178,7 @@ export default function Home() {
         {/* Main Content */}
         <main
           id="main"
-          className="flex flex-col gap-[32px] flex-1 items-center sm:items-start pl-10 ml-[7vw]"
+          className="flex flex-col gap-[32px] flex-1 items-center sm:items-start pl-10 mt-5 ml-[7vw]"
         >
           {/* Sticky Animated Section Container at the top */}
           <div className="relative w-full h-[100vh] flex items-start justify-center">
@@ -189,7 +189,7 @@ export default function Home() {
             >
               {/* Textbox */}
               <div
-                className={`flex-1 flex flex-col justify-center w-[350px] max-w-[400px] text-white dark:text-white bg-gray-600 dark:bg-licorice rounded-lg shadow-lg p-8 mb-20 h-[100vh] transition-all duration-700 ease-out
+                className={`flex-1 flex flex-col justify-center w-[350px] max-w-[400px] text-white bg-gradient-to-bl from-licorice to-very_dark_brown rounded-lg shadow-lg p-8 mb-20 h-[100vh] transition-all duration-700 ease-out
                   ${visible ? "translate-x-0 opacity-100" : "-translate-x-32 opacity-0"}`}
               >
                 <h2 className="text-4xl pt-42 font-bold mb-4">Welcome to My Portfolio</h2>
@@ -218,7 +218,7 @@ export default function Home() {
               ></div>
               {/* Image */}
               <div
-                className={`flex-[1] flex items-center justify-center min-w-[50px] max-w-[600px] mr-50 ml-10 mb-20 h-full transition-all duration-700 ease-linear relative
+                className={`flex-1 flex items-center justify-center min-w-[50px] max-w-[600px] mr-50 ml-10 mb-20 h-full transition-all duration-700 ease-linear relative
                   ${visible ? "translate-x-0 opacity-100" : "-translate-x-32 opacity-0"} hidden sm:flex`}
               >
                 <Image
@@ -227,7 +227,6 @@ export default function Home() {
                   alt="Profile"
                   fill
                   style={{ objectFit: "contain" }}
-                  className="shadow-lg rounded-lg"
                   sizes="(max-width: 500px) 100vw"
                 />
               </div>
@@ -235,27 +234,28 @@ export default function Home() {
           </div>
 
           {/* Second Sticky Animated Section */}
-          <div id="My Skills" className="relative w-full h-[100vh] flex items-start justify-center">
+          <div id="My Skills" className="relative w-full h-[150vh] flex items-start justify-center mt-20 ml-[7vw]">
             <div
               ref={sectionRef2}
-              className={`sticky top-[25vh] flex flex-row items-center w-full h-[50vh] min-h-[300px] justify-center transition-all duration-700 ease-out 
+              className={`sticky top-[3vh] flex flex-row items-center w-full h-[100vh] min-h-[300px] justify-center transition-all duration-700 ease-out 
                 ${hasAnimatedIn2 ? (visible2 ? 'translate-x-0 opacity-100' : '-translate-x-32 opacity-0 pointer-events-none') : 'opacity-0 pointer-events-none'}`}
               style={exitStyle2}
             > 
-              <div className="flex flex-col w-full h-full max-w-[50vh] bg-licorice border-2 rounded-xl border-licorice">
+              <div className={`flex-1 flex flex-col justify-center w-full max-w-[600px] h-[100vh] text-white bg-gradient-to-bl from-licorice to-very_dark_brown rounded-lg shadow-lg p-8 mb-20 transition-all duration-700 ease-out
+                  ${visible ? "translate-x-0 opacity-100" : "-translate-x-32 opacity-0"}`}>
                 <div className="flex flex-1 w-full h-1/6 items-end pb-5 justify-center min-w-70"
                 >
                   <h1 className="text-4xl font-bold ">My Skills</h1>
                 </div>  
                 <div className="flex flex-1 flex-row w-full h-full">
                   <div className="flex flex-[1] flex-col w-full h-full items-center justify-center p-1"
-                  >
-                    <Image 
-                    src="/python.png"
-                    alt="Profile"
-                    width={100}
-                    height={100}
-                    />
+                    >
+                      <Image 
+                      src="/python.png"
+                      alt="Profile"
+                      width={100}
+                      height={100}
+                      />
                   </div>
                   <div className="flex flex-[1] flex-col w-full h-full items-center justify-center p-1 border-t-2 border-cocoa_bean"
                   >
@@ -284,12 +284,24 @@ export default function Home() {
                     height={100}
                     />
                   </div>
-                  
                 </div> 
-                <div className="flex flex-[0.5] w-full items-center justify-center min-w-70"
-                ></div> 
+                <div className="flex flex-[0.5] w-full items-center justify-center min-w-70 ml-10 max-w-[600px]"></div> 
               </div>
-              <div className="w-full h-full"></div> 
+              <div className="flex items-center justify-center w-full h-full ">
+                <div
+                  className={`flex-[1] flex items-center justify-center max-w-[600px] mr-50 ml-10 mb-20 h-full transition-all duration-700 ease-linear relative
+                    ${visible ? "translate-x-0 opacity-100" : "-translate-x-32 opacity-0"} hidden sm:flex`}
+                >
+                  <Image
+                    priority={true}
+                    src="/opengl_square.png"
+                    alt="Profile"
+                    fill
+                    style={{ objectFit: "contain" }}
+                    sizes="(max-width: 500px) 100vw "
+                  />
+                </div>
+              </div> 
             </div>
           </div>
           <div id="About" className="relative w-full h-[100vh] flex items-start justify-center">
@@ -307,15 +319,10 @@ export default function Home() {
       </div>
       {/* Footer */}
       <div className="row-start-3 w-full">
-        <footer className="w-full bg-night h-[35vh] bottom-0 left-0 z-30">
+        <footer className="w-full bg-gradient-to-bl from-cocoa_bean via-licorice to-blue-950 h-[30vh] bottom-0 left-0 z-30 shadow-2xl">
           {/* Footer content goes here */}
         </footer>
       </div>
     </div>
   );
 }
-function handleScroll2(this: Window, ev: Event) {
-  throw new Error("Function not implemented.");
-}
-
-
