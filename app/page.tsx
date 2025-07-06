@@ -392,7 +392,7 @@ export default function Home() {
             {/* Pages Content */}
             <div className="flex flex-1 w-full h-full items-center justify-center pt-5">
               <a className="flex flex-1 items-center justify-center hover:bg-gradient-to-bl from-cocoa_bean via-licorice to-tuna text-gray-300 text-[1.5vh] w-full h-full rounded-2xl gap-2" href="/">
-                <img src="/Home.png" alt="projects" className="max-w-5 max-h-5"></img>
+                <img src="/home.png" alt="projects" className="max-w-5 max-h-5"></img>
               Home
               </a>
             </div>
@@ -404,13 +404,13 @@ export default function Home() {
             </div>
             <div className="flex flex-1 w-full h-full items-center justify-center">
               <a className="flex flex-1 items-center justify-center hover:bg-gradient-to-bl from-cocoa_bean via-licorice to-tuna text-gray-300 text-[1.5vh] w-full h-full rounded-2xl gap-2" href="https://github.com/connorknoetze">
-                <img src="/Github.png" alt="projects" className="max-w-5 max-h-5"></img>
+                <img src="/github.png" alt="projects" className="max-w-5 max-h-5"></img>
               Github
               </a>
             </div>
             <div className="flex flex-1 w-full h-full items-center justify-center">
               <a className="flex flex-1 items-center justify-center hover:bg-gradient-to-bl from-cocoa_bean via-licorice to-tuna text-gray-300 text-[1.5vh] w-full h-full rounded-2xl gap-2" href="/Contact">
-                <img src="/Contact.png" alt="projects" className="max-w-5 max-h-5"></img>
+                <img src="/contact.png" alt="projects" className="max-w-5 max-h-5"></img>
               Contact
               </a>
             </div>
