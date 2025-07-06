@@ -188,30 +188,31 @@ export default function Home() {
               style={exitStyle}
             >
               {/* Textbox */}
-              <div
-                className={`flex-1 flex flex-col justify-center w-[350px] max-w-[400px] text-white bg-gradient-to-bl from-licorice to-very_dark_brown rounded-lg shadow-lg p-8 mb-20 h-[100vh] transition-all duration-700 ease-out
-                  ${visible ? "translate-x-0 opacity-100" : "-translate-x-32 opacity-0"}`}
-              >
-                <h2 className="text-4xl pt-42 font-bold mb-4">Welcome to My Portfolio</h2>
-                <p className="text-lg text-white dark:text-gray-200">
-                  Lorem ipsum dolor sit amet consectetur adipiscing elit. Amet
-                  consectetur adipiscing elit quisque faucibus ex sapien. Quisque
-                  faucibus ex sapien vitae pellentesque sem placerat. Vitae
-                  pellentesque sem placerat in id cursus mi.
-                </p>
-                <li className="pt-5 pb-5 flex items-center justify-center border-b-2 border-cocoa_bean">
-                  <a className="p-5 m-3.5 rounded-xl bg-dark_maroon hover:bg-cocoa_bean transition-colors duration-350" 
-                    href="#My Skills">
-                    My Skills
-                  </a>
-                    <a
-                    className="p-5 m-3.5 rounded-xl bg-dark_maroon hover:bg-cocoa_bean transition-colors duration-350"
-                    href="#About"
-                    >
-                    About
+                <div
+                  className={`flex-1 flex flex-col justify-center w-[350px] max-w-[400px] text-white bg-gradient-to-bl from-licorice to-very_dark_brown rounded-lg shadow-lg p-8 mb-20 h-[100vh] transition-all duration-700 ease-out
+                    ${visible ? "translate-x-0 opacity-100" : "-translate-x-32 opacity-0"}`}
+                >
+                  <h2 className="text-4xl pt-42 font-bold mb-4 border-b-2 border-cocoa_bean">Welcome to My Portfolio</h2>
+                  <p className="text-lg text-white dark:text-gray-200">
+                    Lorem ipsum dolor sit amet consectetur adipiscing elit. Amet
+                    consectetur adipiscing elit quisque faucibus ex sapien. Quisque
+                    faucibus ex sapien vitae pellentesque sem placerat. Vitae
+                    pellentesque sem placerat in id cursus mi.
+                  </p>
+                  <li className="pt-5 pb-5 flex items-center justify-center border-b-2 border-cocoa_bean">
+                    <a className="p-5 m-3.5 rounded-xl bg-dark_maroon hover:bg-cocoa_bean transition-colors duration-350" 
+                      href="#My Skills">
+                      My Skills
                     </a>
-                </li>
-              </div>
+                      <a
+                      className="p-5 m-3.5 rounded-xl bg-dark_maroon hover:bg-cocoa_bean transition-colors duration-350"
+                      href="#About"
+                      >
+                      About
+                      </a>
+                  </li>
+                  <div className="flex flex-[0.4]"></div>
+                </div>
               <div
                 className={`flex-1 max-w-[30vw]
                   ${visible ? "translate-x-0 opacity-100" : "-translate-x-32 opacity-0"} hidden 2xl:flex`}
@@ -234,7 +235,7 @@ export default function Home() {
           </div>
 
           {/* Second Sticky Animated Section */}
-          <div id="My Skills" className="relative w-full h-[150vh] flex items-start justify-center mt-20 ml-[7vw]">
+          <div id="My Skills" className="relative w-full h-[150vh] flex items-start justify-center mt-20">
             <div
               ref={sectionRef2}
               className={`sticky top-[3vh] flex flex-row items-center w-full h-[100vh] min-h-[300px] justify-center transition-all duration-700 ease-out 
@@ -243,11 +244,11 @@ export default function Home() {
             > 
               <div className={`flex-1 flex flex-col justify-center w-full max-w-[600px] h-[100vh] text-white bg-gradient-to-bl from-licorice to-very_dark_brown rounded-lg shadow-lg p-8 mb-20 transition-all duration-700 ease-out
                   ${visible ? "translate-x-0 opacity-100" : "-translate-x-32 opacity-0"}`}>
-                <div className="flex flex-1 w-full h-1/6 items-end pb-5 justify-center min-w-70"
+                <div className="flex flex-[0.7] w-full items-end pb-5 justify-center min-w-70 border-b-2 border-cocoa_bean"
                 >
                   <h1 className="text-4xl font-bold ">My Skills</h1>
                 </div>  
-                <div className="flex flex-1 flex-row w-full h-full">
+                <div className="flex flex-[0.4] flex-row w-full h-full border-b-2 border-cocoa_bean">
                   <div className="flex flex-[1] flex-col w-full h-full items-center justify-center p-1"
                     >
                       <Image 
@@ -257,7 +258,7 @@ export default function Home() {
                       height={100}
                       />
                   </div>
-                  <div className="flex flex-[1] flex-col w-full h-full items-center justify-center p-1 border-t-2 border-cocoa_bean"
+                  <div className="flex flex-[1] flex-col w-full h-full items-center justify-center p-1"
                   >
                     <Image 
                     src="/java.png"
@@ -266,7 +267,7 @@ export default function Home() {
                     height={100}
                     />
                   </div>
-                  <div className="flex flex-[1] flex-col w-full h-full items-center justify-center p-1 border-t-2 border-cocoa_bean"
+                  <div className="flex flex-[1] flex-col w-full h-full items-center justify-center p-1"
                   >
                     <Image 
                     src="/c_lang.png"
@@ -285,12 +286,13 @@ export default function Home() {
                     />
                   </div>
                 </div> 
-                <div className="flex flex-[0.5] w-full items-center justify-center min-w-70 ml-10 max-w-[600px]"></div> 
-              </div>
+                
+                <div className="flex flex-[0.725] w-full items-center justify-center min-w-70 max-w-[600px]"></div> 
+                </div>
               <div className="flex items-center justify-center w-full h-full ">
                 <div
-                  className={`flex-[1] flex items-center justify-center max-w-[600px] mr-50 ml-10 mb-20 h-full transition-all duration-700 ease-linear relative
-                    ${visible ? "translate-x-0 opacity-100" : "-translate-x-32 opacity-0"} hidden sm:flex`}
+                className={`flex-1 flex items-center justify-center min-w-[50px] max-w-[500px] mr-50 ml-10 mb-20 h-full transition-all duration-700 ease-linear relative
+                  ${visible ? "translate-x-0 opacity-100" : "-translate-x-32 opacity-0"} hidden sm:flex`}
                 >
                   <Image
                     priority={true}
@@ -304,14 +306,49 @@ export default function Home() {
               </div> 
             </div>
           </div>
-          <div id="About" className="relative w-full h-[100vh] flex items-start justify-center">
+          <div id="About" className="relative w-full h-[150vh] flex items-start justify-center mt-20">
             <div
               ref={sectionRef3}
-              className={`sticky top-[20vh] flex flex-row items-center w-full h-[60vh] min-h-[300px] justify-center p-5 bg-white transition-all duration-700 ease-out
+              className={`sticky top-[3vh] flex flex-row items-center w-full h-[100vh] min-h-[300px] justify-center transition-all duration-700 ease-out 
                 ${hasAnimatedIn3 ? (visible3 ? 'translate-x-0 opacity-100' : '-translate-x-32 opacity-0 pointer-events-none') : 'opacity-0 pointer-events-none'}`}
               style={exitStyle3}
-            >
-              <h2 className="text-3xl font-bold mb-4">Third Sticky Section</h2>
+            > 
+              <div className={`flex-1 flex flex-col justify-center w-full max-w-[600px] h-[100vh] text-white bg-gradient-to-bl from-licorice to-very_dark_brown rounded-lg shadow-lg p-8 mb-20 transition-all duration-700 ease-out
+                  ${visible ? "translate-x-0 opacity-100" : "-translate-x-32 opacity-0"}`}>
+                <div className="flex flex-[0.7] w-full h-1/6 items-end pb-5 justify-center min-w-70 border-b-2 border-cocoa_bean"
+                >
+                  <h1 className="text-4xl font-bold ">About me</h1>
+                </div>  
+                 
+                <div className="flex flex-[0.4] w-full justify-center min-w-70 max-w-[600px] border-b-2 border-cocoa_bean">
+                  <p className="text-lg text-white dark:text-gray-200 p-5">
+                  Lorem ipsum dolor sit amet consectetur adipiscing elit. Amet
+                  consectetur adipiscing elit quisque faucibus ex sapien. Quisque
+                  faucibus ex sapien vitae pellentesque sem placerat. Vitae
+                  pellentesque sem placerat in id cursus mi.
+                </p> 
+                </div> 
+                <div className="flex flex-[0.7] w-full h-full"></div>
+              </div>
+              <div className="flex items-center justify-center w-full h-full ">
+                <div
+                className={`flex-1 max-w-[30vw]
+                  ${visible ? "translate-x-0 opacity-100" : "-translate-x-32 opacity-0"} hidden 2xl:flex`}
+                ></div>
+                <div
+                className={`flex-1 flex items-center justify-center min-w-[50px] max-w-[700px] mr-50 ml-10 mb-20 h-full transition-all duration-700 ease-linear relative
+                  ${visible ? "translate-x-0 opacity-100" : "-translate-x-32 opacity-0"} hidden sm:flex`}
+              >
+                  <Image
+                    priority={true}
+                    src="/opengl_trapazoid.png"
+                    alt="Profile"
+                    fill
+                    style={{ objectFit: "contain" }}
+                    sizes="(max-width: 500px) 100vw "
+                  />
+                </div>
+              </div> 
             </div>
           </div>
         <div className="h-[20vh]"></div>
