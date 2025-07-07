@@ -6,6 +6,37 @@ export default function Home() {
   const navRef = useRef<HTMLElement>(null);
   const footerRef = useRef<HTMLDivElement>(null);
   const [isNavVisible, setIsNavVisible] = useState(true);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [status, setStatus] = useState('idle'); // idle, loading, success, error
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('loading');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setName('');
+        setEmail('');
+        setMessage('');
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error('An error occurred:', error);
+      setStatus('error');
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -77,7 +108,61 @@ export default function Home() {
         </nav>
 
         {/* Main Content */}
-        <main id="main" className="flex flex-col w-full h-full">
+        <main id="main" className="flex flex-col w-full h-full items-center justify-center ml-20 p-4">
+          <div className="w-full max-w-2xl mx-auto bg-black/20 p-8 rounded-2xl shadow-lg">
+            <h1 className="text-4xl font-bold text-center text-white mb-8">Contact Me</h1>
+            {status === 'success' ? (
+              <p className="text-center text-green-400">Thank you for your message! I\'ll get back to you soon.</p>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-300">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                    className="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-cocoa_bean focus:border-cocoa_bean"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-300">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    className="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-cocoa_bean focus:border-cocoa_bean"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-300">Message</label>
+                  <textarea
+                    id="message"
+                    rows={4}
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    required
+                    className="mt-1 block w-full bg-gray-700 border border-gray-600 rounded-md shadow-sm py-2 px-3 text-white focus:outline-none focus:ring-cocoa_bean focus:border-cocoa_bean"
+                  ></textarea>
+                </div>
+                <div>
+                  <button
+                    type="submit"
+                    disabled={status === 'loading'}
+                    className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-cocoa_bean hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cocoa_bean disabled:bg-gray-500"
+                  >
+                    {status === 'loading' ? 'Sending...' : 'Send Message'}
+                  </button>
+                </div>
+                {status === 'error' && (
+                  <p className="text-red-500 text-center">Something went wrong. Please try again.</p>
+                )}
+              </form>
+            )}
+          </div>
         </main>
       </div>
       {/* Footer */}
