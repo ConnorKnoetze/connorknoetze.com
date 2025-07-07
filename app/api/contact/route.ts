@@ -3,15 +3,21 @@ import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
   try {
+    console.log('Received POST request');
+
     const { name, email, message } = await request.json();
+    console.log('Request data:', { name, email, message });
 
     // Basic validation
     if (!name || !email || !message) {
+      console.warn('Validation failed:', { name, email, message });
       return NextResponse.json({ error: 'Name, email, and message are required.' }, { status: 400 });
     }
 
-    // Create the table if it doesn't exist. This is safe to run on every request.
-    // In a larger application, you might run this once during a setup script.
+    console.log('Validation passed');
+
+    // Create the table if it doesn't exist
+    console.log('Ensuring contacts table exists');
     await sql`
       CREATE TABLE IF NOT EXISTS contacts (
         id SERIAL PRIMARY KEY,
@@ -22,12 +28,16 @@ export async function POST(request: Request) {
       );
     `;
 
+    console.log('Table ensured');
+
     // Insert the data into the table
+    console.log('Inserting data into contacts table');
     await sql`
       INSERT INTO contacts (name, email, message)
       VALUES (${name}, ${email}, ${message});
     `;
 
+    console.log('Data inserted successfully');
     return NextResponse.json({ message: 'Contact message saved successfully.' }, { status: 200 });
   } catch (error) {
     console.error('Error saving contact message:', error);
