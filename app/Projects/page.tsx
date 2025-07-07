@@ -32,9 +32,9 @@ export default function Home() {
   return (
     <div className="grid grid-row min-h-screen font-[family-name:var(--font-geist-sans)] bg-gradient-to-bl from-tuna via-gondola to-diesel ">
       
-      <div className="row-start w-full" id="footer">
-        <header className="flex flex-row items-center justify-center w-full bg-gradient-to-br from-blue-950 via-licorice to-cocoa_bean h-[25vh] shadow-2xl">
-          <h1 className="font-bold text-6xl">Projects</h1>
+      <div className="row-start w-full" id="header">
+        <header className="flex flex-row items-center justify-center w-full bg-gradient-to-br from-blue-950 via-licorice to-cocoa_bean h-[200px] shadow-2xl p-10">
+          <h1 className="font-bold text-4xl">Projects</h1>
         </header>
       </div>
 
@@ -83,7 +83,35 @@ export default function Home() {
         </nav>
 
         {/* Main Content */}
-        <main id="main" className="flex flex-col w-full h-full">
+        <main id="main" className="flex flex-col w-full h-full ml-20">
+
+          <div className="flex w-full h-[5vh]"></div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 w-full h-full p-2.5 gap-4 transition-all duration-700">
+            {[
+              "bg-black",
+              "bg-red-600",
+              "bg-purple-600",
+              "bg-orange-600",
+              "bg-black",
+              "bg-red-600",
+              "bg-purple-600",
+              "bg-orange-600",
+              "bg-black",
+              "bg-red-600",
+              "bg-purple-600",
+              "bg-orange-600",
+              "bg-black",
+              "bg-red-600",
+              "bg-purple-600",
+              "bg-orange-600",
+            ].map((bgColor, index) => (
+              <div
+              key={index}
+              className={`w-full min-w-[200px] min-h-[300px] flex ${bgColor} hover:scale-105 hover:shadow-lg transition-transform duration-500`}
+              ></div>
+            ))}
+            </div>
         </main>
       </div>
       {/* Footer */}
