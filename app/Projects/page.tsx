@@ -104,9 +104,8 @@ export default function Home() {
               { bgColor: "bg-purple-600", title: "Project 15", description: "Description for Project 15", githubLink: "https://github.com/connorknoetze/project15", link: "/project15" },
               { bgColor: "bg-orange-600", title: "Project 16", description: "Description for Project 16", githubLink: "https://github.com/connorknoetze/project16", link: "/project16" },
             ].map(({ bgColor, title, description, githubLink, link }, index) => (
-              <a href={link}>
+              <a href={link} key={index}>
                 <div
-                key={index}
                 className={`w-full min-w-[200px] min-h-[300px] flex flex-col ${bgColor} hover:scale-105 hover:shadow-lg transition-transform duration-500 justify-center items-center gap-2`}>
                   <div>{title}</div>
                   <div>{description}</div>
