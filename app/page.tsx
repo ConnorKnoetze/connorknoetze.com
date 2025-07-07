@@ -2,142 +2,41 @@
 import Image from "next/image";
 import { useRef, useEffect, useState } from "react";
 
-// --- Shared scroll direction state ---
-function useScrollDirection() {
-  const [scrollDir, setScrollDir] = useState<'up' | 'down'>('down');
-  const lastScrollY = useRef(0);
-  useEffect(() => {
-    const onScroll = () => {
-      const y = window.scrollY;
-      setScrollDir(y > lastScrollY.current ? 'down' : 'up');
-      lastScrollY.current = y;
-    };
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-  return scrollDir;
-}
-
 export default function Home() {
-  // --- Section 1 Animation (Hero) ---
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-  const [exitProgress, setExitProgress] = useState(0);
+  const navRef = useRef<HTMLElement>(null);
+  const footerRef = useRef<HTMLDivElement>(null);
+  const [isNavVisible, setIsNavVisible] = useState(true);
+
   useEffect(() => {
     const handleScroll = () => {
-      if (!sectionRef.current) return;
-      const rect = sectionRef.current.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 100) setVisible(true);
-      const stickyParent = sectionRef.current.parentElement;
-      if (stickyParent) {
-        const parentRect = stickyParent.getBoundingClientRect();
-        const parentTop = parentRect.top + window.scrollY;
-        const scrollY = window.scrollY || window.pageYOffset;
-        const scrolled = scrollY - parentTop;
-        const duration = window.innerHeight;
-        let progress = (scrolled / duration) * 3;
-        progress = Math.max(0, Math.min(1, progress));
-        setExitProgress(progress);
+      if (navRef.current && footerRef.current) {
+        const navRect = navRef.current.getBoundingClientRect();
+        const footerRect = footerRef.current.getBoundingClientRect();
+
+        if (navRect.bottom > footerRect.top) {
+          setIsNavVisible(false);
+        } else {
+          setIsNavVisible(true);
+        }
       }
     };
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-  const exitStyle = {
-    transform: `translateX(${exitProgress * 200}px)`,
-    opacity: 1 - exitProgress,
-    transition: 'transform 0.4s, opacity 0.4s',
-  };
 
-  // --- Section 2 Animation ---
-  const sectionRef2 = useRef<HTMLDivElement>(null);
-  const [visible2, setVisible2] = useState(false);
-  const [hasAnimatedIn2, setHasAnimatedIn2] = useState(false);
-  const [exitProgress2, setExitProgress2] = useState(0);
-  useEffect(() => {
-    const handleScroll2 = () => {
-      if (!sectionRef2.current) return;
-      const rect2 = sectionRef2.current.getBoundingClientRect();
-      if (rect2.top < window.innerHeight - 100) {
-        setVisible2(true);
-        setHasAnimatedIn2(true);
-      } else {
-        setVisible2(false);
-      }
-      const stickyParent = sectionRef2.current.parentElement;
-      let relativeScroll = 0;
-      if (stickyParent) {
-        const parentRect = stickyParent.getBoundingClientRect();
-        const parentTop = parentRect.top + window.scrollY;
-        const scrollY = window.scrollY || window.pageYOffset;
-        relativeScroll = scrollY - parentTop;
-      }
-      const buffer = 40;
-      const startFade = window.innerHeight * 0.7 - buffer;
-      const duration = window.innerHeight * 0.7 + buffer * 3;
-      let progress = (relativeScroll - startFade) / duration ;
-      progress = Math.max(0, Math.min(1, progress));
-      setExitProgress2(progress);
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial check
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
     };
-    window.addEventListener('scroll', handleScroll2);
-    handleScroll2();
-    return () => window.removeEventListener('scroll', handleScroll2);
   }, []);
-  const exitStyle2 = {
-    transform: `translateX(${exitProgress2 * 200}px)`,
-    opacity: 1 - exitProgress2,
-    transition: 'transform 0.4s, opacity 0.4s',
-  };
-
-  // --- Section 3 Animation ---
-  const sectionRef3 = useRef<HTMLDivElement>(null);
-  const [visible3, setVisible3] = useState(false);
-  const [hasAnimatedIn3, setHasAnimatedIn3] = useState(false);
-  const [exitProgress3, setExitProgress3] = useState(0);
-  useEffect(() => {
-    const handleScroll3 = () => {
-      if (!sectionRef3.current) return;
-      const rect3 = sectionRef3.current.getBoundingClientRect();
-      if (rect3.top < window.innerHeight - 100) {
-        setVisible3(true);
-        setHasAnimatedIn3(true);
-      } else {
-        setVisible3(false);
-      }
-      const stickyParent = sectionRef3.current.parentElement;
-      let relativeScroll = 0;
-      if (stickyParent) {
-        const parentRect = stickyParent.getBoundingClientRect();
-        const parentTop = parentRect.top + window.scrollY;
-        const scrollY = window.scrollY || window.pageYOffset;
-        relativeScroll = scrollY - parentTop;
-      }
-      const buffer = 40;
-      const startFade = window.innerHeight * 0.7 - buffer;
-      const duration = window.innerHeight * 0.7 + buffer * 2;
-      let progress = (relativeScroll - startFade) / duration;
-      progress = Math.max(0, Math.min(1, progress));
-      setExitProgress3(progress);
-    };
-    window.addEventListener('scroll', handleScroll3);
-    handleScroll3();
-    return () => window.removeEventListener('scroll', handleScroll3);
-  }, []);
-  const exitStyle3 = {
-    transform: `translateX(${exitProgress3 * 200}px)`,
-    opacity: 1 - exitProgress3,
-    transition: 'transform 0.4s, opacity 0.4s',
-  };
-
-  const scrollDir = useScrollDirection();
 
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen sm:p-0 font-[family-name:var(--font-geist-sans)] bg-gradient-to-bl from-tuna via-gondola to-diesel ">
+    <div className="grid grid-row min-h-screen sm:p-0 font-[family-name:var(--font-geist-sans)] bg-gradient-to-bl from-tuna via-gondola to-diesel overflow-x-hidden">
       <div className="row-start-2 w-full flex min-h-screen items-center">
         
         {/* Vertical Navigation Menu */}
-        <nav className="flex flex-col gap-10 border-r-3 border-t-3 border-b-3 border-cocoa_bean min-w-[60px] items-left h-auto fixed top-1/2 left-0 -translate-y-1/2 z-20 bg-licorice shadow-lg rounded-r-xl pt-5 pb-5 pl-5 pr-1 justify-center">
+        <nav 
+          ref={navRef}
+          className={`flex flex-col gap-10 border-r-3 border-t-3 border-b-3 border-cocoa_bean min-w-[60px] items-left h-auto fixed top-1/2 left-0 -translate-y-1/2 z-20 bg-licorice shadow-lg rounded-r-xl pt-5 pb-5 pl-5 pr-1 justify-center transition-opacity duration-300 ${isNavVisible ? 'opacity-100' : 'opacity-0'}`}>
           {[
             { href: "/", icon: "/home.png", alt: "Home Icon", label: "| Home" },
             {
@@ -177,212 +76,123 @@ export default function Home() {
           ))}
         </nav>
 
-        {/* Main Content */}
-        <main id="main" className="flex flex-col gap-[32px] flex-1 items-center pl-[10vh] mt-5">
+        {/* Main Page Content */ }
+        <main className="w-full h-full items-center justify-center ml-20">
+          
+          {/* Welcome Section */}
+          <div id="welcome" className="flex flex-col lg:flex-row flex-wrap flex-1 w-full h-[100vh] transition-all duration-700 bg-black/20 p-5 rounded-4xl">
 
-          {/* Sticky Animated Section Container at the top */}
-          <div className="relative w-full h-[100vh] flex items-start justify-center ml-[7vw]">
-            <div
-              ref={sectionRef}
-              className="sticky flex flex-row items-center w-full h-screen min-h-[300px] justify-center"
-              style={exitStyle}
-            >
-              {/* Textbox */}
-                <div
-                  className={`flex-1 flex flex-col justify-center w-[350px] max-w-[400px] text-white bg-gradient-to-bl from-licorice to-very_dark_brown rounded-lg shadow-lg p-8 mb-20 h-[100vh] transition-all duration-700 ease-out
-                    ${visible ? "translate-x-0 opacity-100" : "-translate-x-32 opacity-0"}`}
-                >
-                  <h2 className="text-4xl pt-42 font-bold mb-4 border-b-2 border-cocoa_bean pb-5">Welcome to My Portfolio</h2>
-                  <p className="text-lg text-white dark:text-gray-200 text-center">
-                    Here you will find a collection of all of the projects I have completed on my programming journey to date. 
-                    Experiments, jokes, faliures and successes are all included.
-                  </p>
-                  <li className="pt-5 pb-5 flex items-center justify-center border-b-2 border-cocoa_bean">
-                    <a className="p-5 m-3.5 rounded-xl bg-dark_maroon hover:bg-cocoa_bean transition-colors duration-350" 
-                      href="#My Skills">
-                      My Skills
-                    </a>
-                    <a
-                      className="p-5 m-3.5 rounded-xl bg-dark_maroon hover:bg-cocoa_bean transition-colors duration-350"
-                      href="#About">
-                      About Me
-                    </a>
-                  </li>
-                  <div className="flex flex-[0.4]"></div>
+            <div className="flex flex-[1] flex-col w-full h-full pl-5 pr-5 items-center justify-center bg-gradient-to-bl from-tuna via-licorice to-cocoa_bean transition-all duration-700 rounded-4xl">
+              <div className="flex flex-col bg-gray-300/10 items-center p-4 sm:p-10 rounded-4xl">
+                <h1 className="flex text-3xl lg:text-4xl text-center pb-5 border-b-2 border-cocoa_bean text-white">Welcome To My Portfolio</h1>
+                <p className="p-5 text-center text-white">Here you will find a collection of all of the projects I have completed on my programming journey to date. Experiments, jokes, faliures and successes are all included.</p>
+                <div className="flex flex-row gap-5">
+                  <a href="#skills" className="p-5 bg-black/20 hover:bg-cocoa_bean/50 hover:shadow-xl shadow-red-700/20 rounded-3xl transition-all duration-500 text-white">Skills</a>
+                  <a href="#about" className="p-5 bg-black/20 hover:bg-cocoa_bean/50 hover:shadow-xl shadow-red-700/20 rounded-3xl transition-all duration-500 text-white">About</a>
                 </div>
-              <div
-                className={`flex-1 max-w-[30vw]
-                  ${visible ? "translate-x-0 opacity-100" : "-translate-x-32 opacity-0"} hidden 2xl:flex`}
-              ></div>
-              {/* Image */}
-              <div
-                className={`flex-1 flex items-center justify-center min-w-[50px] max-w-[600px] mr-50 ml-10 mb-20 h-full transition-all duration-700 ease-linear relative
-                  ${visible ? "translate-x-0 opacity-100" : "-translate-x-32 opacity-0"} hidden sm:flex`}
-              >
-                <Image
-                  priority={true}
-                  src="/opengl_triangle.png"
-                  alt="Profile"
-                  fill
-                  style={{ objectFit: "contain" }}
-                  sizes="(max-width: 500px) 100vw"
-                />
               </div>
+            </div>
+
+            <div className="hidden md:flex flex-[1] flex-col w-full h-full justify-center items-center p-4 md:p-10 transition-all duration-700">
+              <img
+                src="opengl_triangle.png"
+                alt="triangle"
+                className="flex object-contain"
+              />
             </div>
           </div>
 
-          {/* Second Sticky Animated Section */}
-          <div id="My Skills" className="relative w-full h-[150vh] flex items-start justify-center mt-20 ml-[7vw]">
-            <div
-              ref={sectionRef2}
-              className={`sticky top-[3vh] flex flex-row items-center w-full h-[100vh] min-h-[300px] justify-center transition-all duration-700 ease-out 
-                ${hasAnimatedIn2 ? (visible2 ? 'translate-x-0 opacity-100' : '-translate-x-32 opacity-0 pointer-events-none') : 'opacity-0 pointer-events-none'}`}
-              style={exitStyle2}
-            > 
-              <div className={`flex-1 flex flex-col justify-center w-full max-w-[600px] h-[100vh] text-white bg-gradient-to-bl from-licorice to-very_dark_brown rounded-lg shadow-lg p-8 mb-20 transition-all duration-700 ease-out
-                  ${visible ? "translate-x-0 opacity-100" : "-translate-x-32 opacity-0"}`}>
-                <div className="flex flex-[0.7] w-full items-end pb-5 justify-center min-w-70 border-b-2 border-cocoa_bean"
-                >
-                  <h1 className="text-4xl font-bold ">My Skills</h1>
-                </div>  
-                <div className="flex flex-[0.4] flex-row w-full h-full border-b-2 border-cocoa_bean">
-                  <div className="flex flex-[1] flex-col w-full h-full items-center justify-center p-1"
-                    >
-                      <Image 
-                      src="/python.png"
-                      alt="Profile"
-                      width={100}
-                      height={100}
-                      />
-                  </div>
-                  <div className="flex flex-[1] flex-col w-full h-full items-center justify-center p-1"
-                  >
-                    <Image 
-                    src="/java.png"
-                    alt="Profile"
-                    width={100}
-                    height={100}
-                    />
-                  </div>
-                  <div className="flex flex-[1] flex-col w-full h-full items-center justify-center p-1"
-                  >
-                    <Image 
-                    src="/c_lang.png"
-                    alt="Profile"
-                    width={100}
-                    height={100}
-                    />
-                  </div>
-                  <div className="flex flex-[1] flex-col w-full h-full items-center justify-center p-1"
-                  >
-                    <Image 
-                    src="/cpp.png"
-                    alt="Profile"
-                    width={100}
-                    height={100}
-                    />
-                  </div>
-                </div> 
+          <div className="hidden xl:flex xl:w-full h-[5vh]"></div>
+
+          {/* My Skills Section */ }
+          <div id="skills" className="flex flex-1 p-5 bg-black/20 rounded-4xl lg:flex-row flex-col w-full h-auto lg:h-[80vh] 2xl:h-[30vh]">
+              <div className="flex flex-[0.2] lg:flex-[0.4] flex-row w-full h-full p-4 md:p-10 items-end lg:items-center justify-center">
+                <h1 className="text-4xl w-full text-center pb-5 border-b-4 border-cocoa_bean text-nowrap">My Skills</h1>
+              </div>
+              
+              <div className="flex flex-1 w-full h-full pb-5 pl-5 pr-5">
+                <div className="grid gap-5 w-full h-full bg-gradient-to-bl from-cocoa_bean via-licorice to-tuna rounded-3xl grid-cols-1 grid-rows-4 lg:grid-cols-2 lg:grid-rows-2 2xl:grid-rows-1 2xl:grid-cols-4 items-center contain-content">
+                  {[
+                    { src: "python.png", alt: "Python" },
+                    { src: "java.png", alt: "Java" },
+                    { src: "c_lang.png", alt: "C" },
+                    { src: "cpp.png", alt: "C++" },
+                  ].map(({ src, alt}) => (
+                    <div key={alt} className="flex flex-col items-center justify-center h-full w-full hover:bg-white/5 hover:rounded-2xl transition">
+                      <a href="/Projects" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full h-full">
+                        <img src={src} alt={alt} className="object-contain w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 max-w-full max-h-[220px] transition-transform duration-300 hover:scale-105"/>
+                      </a>
+                    </div>
+                  ))}
+                </div>
+              </div>
+          </div>
+
+          <div className="hidden xl:flex xl:w-full h-[5vh]"></div>
+
+          {/* About Me Section */ }
+          <div id="about" className="flex flex-col lg:flex-row flex-wrap flex-1 w-full h-[100vh] transition-all duration-700 bg-black/20 p-5 rounded-4xl">
+            <div className="flex flex-[1] flex-col w-full h-full p-5 items-center justify-center bg-gradient-to-bl from-tuna via-licorice to-cocoa_bean transition-all duration-700 rounded-4xl">
+              
+              <div className="flex flex-1 flex-row w-full h-full items-center justify-center">
                 
-                <div className="flex flex-[0.725] w-full items-center justify-center min-w-70 max-w-[600px]"></div> 
+                <div className="grid xl:grid-cols-2 xl:grid-rows-1 lg:grid-cols-1 lg:grid-rows-2 items-center justify-center">
+                  <h1 className="text-center text-4xl border-b-2 border-cocoa_bean xl:border-0">About Me</h1>
+                  <p className="pt-5 md:pt-0 text-center text-xs md:text-lg xl:border-l-2 border-cocoa_bean xl:pl-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in odio nec nunc consectetur tristique eget ut sapien. Phasellus ac ante rutrum, consectetur mi a, auctor urna. Integer non malesuada nisi. Quisque quis nunc quis ipsum vulputate porta. Nam nec turpis commodo, egestas neque sit amet, congue orci. Nulla libero. </p>
                 </div>
-              <div className="flex items-center justify-center w-full h-full ">
-                <div
-                className={`flex-1 max-w-[30vw]
-                  ${visible ? "translate-x-0 opacity-100" : "-translate-x-32 opacity-0"} hidden 2xl:flex`}
-                ></div>
-                <div
-                className={`flex-1 flex items-center justify-center min-w-[50px] max-w-[500px] mr-50 ml-10 mb-20 h-full transition-all duration-700 ease-linear relative
-                  ${visible ? "translate-x-0 opacity-100" : "-translate-x-32 opacity-0"} hidden sm:flex`}
-                >
-                  <Image
-                    priority={true}
-                    src="/opengl_square.png"
-                    alt="Profile"
-                    fill
-                    style={{ objectFit: "contain" }}
-                    sizes="(max-width: 500px) 100vw "
-                  />
-                </div>
-              </div> 
-            </div>
-          </div>
 
-          {/* Third Sticky Animated Section */}
-          <div id="About" className="relative w-full h-[150vh] flex items-start justify-center mt-20 ml-[7vw]">
-            <div
-              ref={sectionRef3}
-              className={`sticky top-[3vh] flex flex-row items-center w-full h-[100vh] min-h-[300px] justify-center transition-all duration-700 ease-out 
-                ${hasAnimatedIn3 ? (visible3 ? 'translate-x-0 opacity-100' : '-translate-x-32 opacity-0 pointer-events-none') : 'opacity-0 pointer-events-none'}`}
-              style={exitStyle3}
-            > 
-              <div className={`flex-1 flex flex-col justify-center w-full max-w-[600px] h-[100vh] text-white bg-gradient-to-bl from-licorice to-very_dark_brown rounded-lg shadow-lg p-8 mb-20 transition-all duration-700 ease-out
-                  ${visible ? "translate-x-0 opacity-100" : "-translate-x-32 opacity-0"}`}>
-                <div className="flex flex-[0.7] w-full h-1/6 items-end pb-5 justify-center min-w-70 border-b-2 border-cocoa_bean"
-                >
-                  <h1 className="text-4xl font-bold ">About me</h1>
-                </div>  
-                 
-                <div className="flex flex-[0.4] w-full justify-center min-w-70 max-w-[600px] border-b-2 border-cocoa_bean">
-                  <p className="text-lg text-white dark:text-gray-200 p-5">
-                  Lorem ipsum dolor sit amet consectetur adipiscing elit. Amet
-                  consectetur adipiscing elit quisque faucibus ex sapien. Quisque
-                  faucibus ex sapien vitae pellentesque sem placerat. Vitae
-                  pellentesque sem placerat in id cursus mi.
-                </p> 
-                </div> 
-                <div className="flex flex-[0.7] w-full h-full"></div>
               </div>
-              <div className="flex items-center justify-center w-full h-full ">
-                <div
-                className={`flex-1 max-w-[30vw]
-                  ${visible ? "translate-x-0 opacity-100" : "-translate-x-32 opacity-0"} hidden 2xl:flex`}
-                ></div>
-                <div className={`flex-1 flex items-center justify-center min-w-[50px] max-w-[700px] mr-50 ml-10 mb-20 h-full transition-all duration-700 ease-linear relative
-                  ${visible ? "translate-x-0 opacity-100" : "-translate-x-32 opacity-0"} hidden sm:flex`}>
-                  <Image
-                    priority={true}
-                    src="/opengl_trapazoid.png"
-                    alt="Profile"
-                    fill
-                    style={{ objectFit: "contain" }}
-                    sizes="(max-width: 500px) 100vw "
-                  />
+
+                <div className="flex flex-1 flex-row bg-black/20 rounded-4xl w-full h-full items-center justify-center p-5">
+                  <div className="grid grid-rows-2 gap-10 lg:grid-cols-2 lg:grid-rows-1 items-center justify-center">
+                    <a href="https://github.com/connorknoetze" target="_blank" rel="noopener noreferrer"><img src="pfp.png" alt="profile picture" className="border-2 rounded-full w-24 h-24 lg:w-40 lg:h-40 xl:w-60 xl:h-60 object-cover hover:shadow-lg shadow-white hover:scale-105 transition-transform duration-300"/></a>
+                    <div>
+                      <p className="xl:text-2xl">Connor Knoetze</p><br />
+                      <p className="xl:text-2xl">Bachelor Of Science (BSc)</p><br />
+                      <p className="xl:text-2xl">Computer Science</p><br />
+                    </div>
+                  </div>
                 </div>
-              </div> 
+
+            </div>
+            <div className="hidden md:flex flex-[1] flex-col w-full h-full justify-center items-center p-4 md:p-10 transition-all duration-700">
+              <img
+                src="opengl_square.png"
+                alt="triangle"
+                className="flex object-contain"
+              />
             </div>
           </div>
-        
-        {/* Whitespace at end of page */}
-        <div className="h-[10vh]"></div>
-
+          
+          <div className="flex xl:w-full h-[5vh]"></div>
         </main>
       </div>
+
       {/* Footer */}
-      <div className="row-start-3 w-full" id="footer">
-        <footer className="flex flex-row w-full bg-gradient-to-bl from-cocoa_bean via-licorice to-blue-950 h-[30vh] bottom-0 left-0 z-30 shadow-2xl pt-10 pb-10">
+      <div ref={footerRef} className="row-start-3 w-full" id="footer">
+        <footer className="flex flex-row flex-wrap w-full shadow-2xl pt-10 pb-10 justify-center bg-gradient-to-bl from-cocoa_bean via-licorice to-blue-950">
           
           {/* PFP Section */}
-          <div className="flex flex-[0.5] flex-row w-full h-full ml-[5vw] mr-[5vw]">
+          <div className="flex flex-[1] flex-row w-full h-full ml-[5vw] mr-[5vw] mb-10 items-center">
             <div className="flex flex-1 w-full h-full max-w-100 items-center justify-end pr-2">
-              <a href="https://github.com/connorknoetze" target="_blank" rel="noopener noreferrer" className=""><img src={"pfp.png"} width={200} className="border-3 rounded-full hover:shadow-lg shadow-white transition-all duration-350 min-w-30"></img></a>
+              <a href="https://github.com/connorknoetze" target="_blank" rel="noopener noreferrer" className=""><img src={"pfp.png"} width={200} className="border-3 rounded-full hover:shadow-lg shadow-white transition-all duration-350 min-w-50"></img></a>
             </div>
             <div className="flex flex-[0.5] flex-col w-full h-full items-center justify-center">
               <div className="flex flex-col flex-[1] w-full h-full p-5 gap-3 justify-center">
-                <h1 className="font-bold" >- Connor Knoetze -</h1>
-                <p>Bachelor Of Science (BSc)</p>
-                <p>Computer Science</p>
+                <h1 className="font-bold text-white" >Connor Knoetze</h1>
+                <p className="text-white">Bachelor Of Science (BSc)</p>
+                <p className="text-white">Computer Science</p>
               </div>
             </div>
           </div>
 
           {/* Pages */}
-          <div className="flex flex-col flex-[0.4] w-full max-w-400px h-full p-5 ml-[5vw] mr-[5vw] bg-gray-600/15 hover:bg-gray-500/15 rounded-2xl transition-colors duration-350 shadow-xl hover:shadow-2xl">
+          <div className="flex flex-col flex-[1] items-center justify-center w-full h-fill min-w-50 max-w-200 p-5 m-2.5 ml-[5vw] mr-[5vw] bg-gray-600/15 hover:bg-gray-500/15 rounded-2xl transition-colors duration-350 shadow-xl hover:shadow-2xl">
             {/* Quicklinks Text Box */}
             <div className="flex flex-1 w-full h-full">
               <div className="flex flex-[0.2] w-full h-full"></div>
               <div className="flex flex-[1] w-full h-full items-center justify-center border-b-2 border-b-cocoa_bean">
-                <h1 className="flex font-bold text-[2vh]">
+                <h1 className="flex font-bold text-2xl text-white">
                   Pages
                 </h1>
               </div>
@@ -391,25 +201,25 @@ export default function Home() {
             
             {/* Pages Content */}
             <div className="flex flex-1 w-full h-full items-center justify-center pt-5">
-              <a className="flex flex-1 items-center justify-center hover:bg-gradient-to-bl from-cocoa_bean via-licorice to-tuna text-gray-300 text-[1.5vh] w-full h-full rounded-2xl gap-2" href="/">
+              <a className="flex flex-1 items-center justify-center hover:bg-gradient-to-bl from-cocoa_bean via-licorice to-tuna text-gray-300 text-lg w-full h-full rounded-2xl gap-2" href="/">
                 <img src="/home.png" alt="projects" className="max-w-5 max-h-5"></img>
               Home
               </a>
             </div>
             <div className="flex flex-1 w-full h-full items-center justify-center">
-              <a className="flex flex-1 items-center justify-center hover:bg-gradient-to-bl from-cocoa_bean via-licorice to-tuna text-gray-300 text-[1.5vh] w-full h-full rounded-2xl gap-2" href="/Projects">
+              <a className="flex flex-1 items-center justify-center hover:bg-gradient-to-bl from-cocoa_bean via-licorice to-tuna text-gray-300 text-lg w-full h-full rounded-2xl gap-2" href="/Projects">
                 <img src="/projects.png" alt="projects" className="max-w-5 max-h-5"></img>
               Projects
               </a>
             </div>
             <div className="flex flex-1 w-full h-full items-center justify-center">
-              <a className="flex flex-1 items-center justify-center hover:bg-gradient-to-bl from-cocoa_bean via-licorice to-tuna text-gray-300 text-[1.5vh] w-full h-full rounded-2xl gap-2" href="https://github.com/connorknoetze">
+              <a className="flex flex-1 items-center justify-center hover:bg-gradient-to-bl from-cocoa_bean via-licorice to-tuna text-gray-300 text-lg w-full h-full rounded-2xl gap-2" href="https://github.com/connorknoetze">
                 <img src="/github.png" alt="projects" className="max-w-5 max-h-5"></img>
               Github
               </a>
             </div>
             <div className="flex flex-1 w-full h-full items-center justify-center">
-              <a className="flex flex-1 items-center justify-center hover:bg-gradient-to-bl from-cocoa_bean via-licorice to-tuna text-gray-300 text-[1.5vh] w-full h-full rounded-2xl gap-2" href="/Contact">
+              <a className="flex flex-1 items-center justify-center hover:bg-gradient-to-bl from-cocoa_bean via-licorice to-tuna text-gray-300 text-lg w-full h-full rounded-2xl gap-2" href="/Contact">
                 <img src="/contact.png" alt="projects" className="max-w-5 max-h-5"></img>
               Contact
               </a>
@@ -418,11 +228,11 @@ export default function Home() {
           </div>
 
           {/* Quick Menu */}
-          <div className="flex flex-col flex-[0.4] w-full h-full max-w-400px p-5 ml-[5vw] mr-[5vw] bg-gray-600/15 hover:bg-gray-500/15 rounded-2xl transition-colors duration-350 shadow-xl hover:shadow-2xl">
+          <div className="flex flex-col flex-[1] items-center justify-center w-full h-fill min-w-50 max-w-200 p-5 m-2.5 ml-[5vw] mr-[5vw] bg-gray-600/15 hover:bg-gray-500/15 rounded-2xl transition-colors duration-350 shadow-xl hover:shadow-2xl">
             <div className="flex flex-1 w-full h-full">
               <div className="flex flex-[0.2] w-full h-full"></div>
               <div className="flex flex-[1] w-full h-full items-center justify-center border-b-2 border-b-cocoa_bean">
-                <h1 className="flex font-bold text-[2vh]">
+                <h1 className="flex font-bold text-2xl text-white">
                   Quick Menu
                 </h1>
               </div>
@@ -430,13 +240,13 @@ export default function Home() {
             </div>
 
             <div className="flex flex-1 w-full h-full items-center justify-center pt-5">
-              <a className="flex flex-1 items-center justify-center hover:bg-gradient-to-bl from-cocoa_bean via-licorice to-tuna text-gray-300 text-[1.5vh] w-full h-full rounded-2xl" href="/#main">Welcome</a>
+              <a className="flex flex-1 items-center justify-center hover:bg-gradient-to-bl from-cocoa_bean via-licorice to-tuna text-gray-300 text-lg w-full h-full rounded-2xl" href="/#main">Welcome</a>
             </div>
             <div className="flex flex-1 w-full h-full items-center justify-center">
-              <a className="flex flex-1 items-center justify-center hover:bg-gradient-to-bl from-cocoa_bean via-licorice to-tuna text-gray-300 text-[1.5vh] w-full h-full rounded-2xl" href="/#My Skills">My Skills</a>
+              <a className="flex flex-1 items-center justify-center hover:bg-gradient-to-bl from-cocoa_bean via-licorice to-tuna text-gray-300 text-lg w-full h-full rounded-2xl" href="/#My Skills">My Skills</a>
             </div>
             <div className="flex flex-1 w-full h-full items-center justify-center">
-              <a className="flex flex-1 items-center justify-center hover:bg-gradient-to-bl from-cocoa_bean via-licorice to-tuna text-gray-300 text-[1.5vh] w-full h-full rounded-2xl" href="/#About">About me</a>
+              <a className="flex flex-1 items-center justify-center hover:bg-gradient-to-bl from-cocoa_bean via-licorice to-tuna text-gray-300 text-lg w-full h-full rounded-2xl" href="/#About">About me</a>
             </div>
 
           </div>

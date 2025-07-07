@@ -21,39 +21,8 @@
   --color-gondola: #210215;
   --color-tuna: #3D2252;
   --color-diesel: #0F0000;
-  --color-asphalt: #0A0002
+  --color-asphalt: #0A0002;
 }
-
-
-@keyframes slidein-fadein-left {
-  from { opacity: 0; transform: translateX(-8rem); }
-  to { opacity: 1; transform: translateX(0); }
-}
-@keyframes slidein-fadein-right {
-  from { opacity: 0; transform: translateX(8rem); }
-  to { opacity: 1; transform: translateX(0); }
-}
-@keyframes slideout-fadeout-right {
-  from { opacity: 1; transform: translateX(0); }
-  to { opacity: 0; transform: translateX(8rem); }
-}
-@keyframes slideout-fadeout-left {
-  from { opacity: 1; transform: translateX(0); }
-  to { opacity: 0; transform: translateX(-8rem); }
-}
-.animate-slidein-fadein-left {
-  animation: slidein-fadein-left 1.2s cubic-bezier(0.22,1,0.36,1);
-}
-.animate-slidein-fadein-right {
-  animation: slidein-fadein-right 1.2s cubic-bezier(0.22,1,0.36,1);
-}
-.animate-slideout-fadeout-right {
-  animation: slideout-fadeout-right 1.2s cubic-bezier(0.22,1,0.36,1);
-}
-.animate-slideout-fadeout-left {
-  animation: slideout-fadeout-left 1.2s cubic-bezier(0.22,1,0.36,1);
-}
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #210215;
