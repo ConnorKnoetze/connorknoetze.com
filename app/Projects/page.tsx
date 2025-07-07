@@ -85,31 +85,34 @@ export default function Home() {
         {/* Main Content */}
         <main id="main" className="flex flex-col w-full h-full ml-20">
 
-          <div className="flex w-full h-[5vh]"></div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6 w-full h-full p-2.5 gap-4 transition-all duration-700">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full h-full p-2.5 gap-5 transition-all duration-700">
             {[
-              "bg-black",
-              "bg-red-600",
-              "bg-purple-600",
-              "bg-orange-600",
-              "bg-black",
-              "bg-red-600",
-              "bg-purple-600",
-              "bg-orange-600",
-              "bg-black",
-              "bg-red-600",
-              "bg-purple-600",
-              "bg-orange-600",
-              "bg-black",
-              "bg-red-600",
-              "bg-purple-600",
-              "bg-orange-600",
-            ].map((bgColor, index) => (
-              <div
-              key={index}
-              className={`w-full min-w-[200px] min-h-[300px] flex ${bgColor} hover:scale-105 hover:shadow-lg transition-transform duration-500`}
-              ></div>
+              { bgColor: "bg-black", title: "Project 1", description: "Description for Project 1", githubLink: "https://github.com/connorknoetze/project1", link: "/project1" },
+              { bgColor: "bg-red-600", title: "Project 2", description: "Description for Project 2", githubLink: "https://github.com/connorknoetze/project2", link: "/project2" },
+              { bgColor: "bg-purple-600", title: "Project 3", description: "Description for Project 3", githubLink: "https://github.com/connorknoetze/project3", link: "/project3" },
+              { bgColor: "bg-orange-600", title: "Project 4", description: "Description for Project 4", githubLink: "https://github.com/connorknoetze/project4", link: "/project4" },
+              { bgColor: "bg-black", title: "Project 5", description: "Description for Project 5", githubLink: "https://github.com/connorknoetze/project5", link: "/project5" },
+              { bgColor: "bg-red-600", title: "Project 6", description: "Description for Project 6", githubLink: "https://github.com/connorknoetze/project6", link: "/project6" },
+              { bgColor: "bg-purple-600", title: "Project 7", description: "Description for Project 7", githubLink: "https://github.com/connorknoetze/project7", link: "/project7" },
+              { bgColor: "bg-orange-600", title: "Project 8", description: "Description for Project 8", githubLink: "https://github.com/connorknoetze/project8", link: "/project8" },
+              { bgColor: "bg-black", title: "Project 9", description: "Description for Project 9", githubLink: "https://github.com/connorknoetze/project9", link: "/project9" },
+              { bgColor: "bg-red-600", title: "Project 10", description: "Description for Project 10", githubLink: "https://github.com/connorknoetze/project10", link: "/project10" },
+              { bgColor: "bg-purple-600", title: "Project 11", description: "Description for Project 11", githubLink: "https://github.com/connorknoetze/project11", link: "/project11" },
+              { bgColor: "bg-orange-600", title: "Project 12", description: "Description for Project 12", githubLink: "https://github.com/connorknoetze/project12", link: "/project12" },
+              { bgColor: "bg-black", title: "Project 13", description: "Description for Project 13", githubLink: "https://github.com/connorknoetze/project13", link: "/project13" },
+              { bgColor: "bg-red-600", title: "Project 14", description: "Description for Project 14", githubLink: "https://github.com/connorknoetze/project14", link: "/project14" },
+              { bgColor: "bg-purple-600", title: "Project 15", description: "Description for Project 15", githubLink: "https://github.com/connorknoetze/project15", link: "/project15" },
+              { bgColor: "bg-orange-600", title: "Project 16", description: "Description for Project 16", githubLink: "https://github.com/connorknoetze/project16", link: "/project16" },
+            ].map(({ bgColor, title, description, githubLink, link }, index) => (
+              <a href={link}>
+                <div
+                key={index}
+                className={`w-full min-w-[200px] min-h-[300px] flex flex-col ${bgColor} hover:scale-105 hover:shadow-lg transition-transform duration-500 justify-center items-center gap-2`}>
+                  <div>{title}</div>
+                  <div>{description}</div>
+                  <a href={githubLink}><div className="flex gap-1 hover:scale-[105%] transform-all duration-350"><img src="github.png" width={20} height={20} alt=""/>Github link</div></a>
+                </div>
+              </a>
             ))}
             </div>
         </main>
