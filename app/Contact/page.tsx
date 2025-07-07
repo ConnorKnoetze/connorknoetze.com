@@ -112,7 +112,7 @@ export default function Home() {
           <div className="w-full max-w-2xl mx-auto bg-black/20 p-8 rounded-2xl shadow-lg">
             <h1 className="text-4xl font-bold text-center text-white mb-8">Contact Me</h1>
             {status === 'success' ? (
-              <p className="text-center text-green-400">Thank you for your message! I\'ll get back to you soon.</p>
+              <p className="text-center text-green-400">Thank you for your message! I'll get back to you soon.</p>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>

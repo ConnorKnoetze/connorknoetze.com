@@ -5,7 +5,15 @@ export async function POST(request: Request) {
   try {
     console.log('Received POST request');
 
-    const { name, email, message } = await request.json();
+    let requestBody;
+    try {
+      requestBody = await request.json();
+    } catch (jsonError) {
+      console.error('Failed to parse JSON:', jsonError);
+      return NextResponse.json({ error: 'Invalid JSON input.' }, { status: 400 });
+    }
+
+    const { name, email, message } = requestBody;
     console.log('Request data:', { name, email, message });
 
     // Basic validation
