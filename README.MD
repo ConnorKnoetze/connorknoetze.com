@@ -26,7 +26,7 @@ This is a modern portfolio website built using Next.js, TypeScript, and Tailwind
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/<your-username>/<your-repo-name>.git
+   git clone https://github.com/ConnorKnoetze/connorknoetze.github.io
    ```
 2. Navigate to the project directory:
    ```bash
