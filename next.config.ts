@@ -2,7 +2,6 @@ import type { NextConfig } from "next";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
   images: { unoptimized: true },
   // For user/organization GitHub Pages (repo named <username>.github.io), DO NOT set basePath or assetPrefix
 };
