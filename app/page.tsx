@@ -167,7 +167,6 @@ export default function Home() {
           <div className="flex xl:w-full h-[5vh]"></div>
         </main>
       </div>
-      {/*comment*/}
       {/* Footer */}
       <div ref={footerRef} className="row-start-3 w-full" id="footer">
         <footer className="flex flex-row flex-wrap w-full shadow-2xl pt-10 pb-10 justify-center bg-gradient-to-bl from-cocoa_bean via-licorice to-blue-950">
