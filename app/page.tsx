@@ -85,7 +85,7 @@ export default function Home() {
             <div className="flex flex-[1] flex-col w-full h-full pl-5 pr-5 items-center justify-center bg-gradient-to-bl from-tuna via-licorice to-cocoa_bean transition-all duration-700 rounded-4xl">
               <div className="flex flex-col bg-gray-300/10 items-center p-4 sm:p-10 rounded-4xl">
                 <h1 className="flex text-3xl lg:text-4xl text-center pb-5 border-b-2 border-cocoa_bean text-white">Welcome To My Portfolio</h1>
-                <p className="p-5 text-center text-white">Here you will find a collection of all of the projects I have completed on my programming journey to date. Experiments, jokes, faliures and successes are all included.</p>
+                <p className="p-5 text-center text-white">Here you will find a collection of all of the projects I have completed on my programming journey to date. Experiments, faliures and successes are all included.</p>
                 <div className="flex flex-row gap-5">
                   <a href="#skills" className="p-5 bg-black/20 hover:bg-cocoa_bean/50 hover:shadow-xl shadow-red-700/20 rounded-3xl transition-all duration-500 text-white">Skills</a>
                   <a href="#about" className="p-5 bg-black/20 hover:bg-cocoa_bean/50 hover:shadow-xl shadow-red-700/20 rounded-3xl transition-all duration-500 text-white">About</a>
