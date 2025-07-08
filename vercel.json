@@ -4,6 +4,10 @@
       "source": "/api/contact",
       "headers": [
         {
+          "key": "Authorization",
+          "value": ""
+        },
+        {
           "key": "Access-Control-Allow-Origin",
           "value": "*"
         }
