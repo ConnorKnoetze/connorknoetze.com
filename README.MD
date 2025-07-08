@@ -63,10 +63,10 @@ portfolio_website/
 │   ├── Projects/
 │   │   └── page.tsx
 │   ├── api/
-│   │   ├── contact/
-│   │   │   └── route.ts
-│   │   └── test-db/
+│   │   └── contact/
 │   │       └── route.ts
+│   │  
+│   │
 │   └── page.tsx
 ├── public/
 ├── styles/
@@ -74,7 +74,6 @@ portfolio_website/
 ├── .env.local
 ├── next.config.ts
 ├── package.json
-├── README.md
 └── vercel.json
 ```
 
