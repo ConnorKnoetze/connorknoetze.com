@@ -11,11 +11,13 @@
     "deploy": "npm run export && gh-pages -d out"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.0.1",
     "@vercel/postgres": "^0.10.0",
     "curl": "^0.1.4",
     "next": "15.3.4",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "vercel": "^44.2.13"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
