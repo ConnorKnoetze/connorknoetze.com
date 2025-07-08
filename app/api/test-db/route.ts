@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { Pool } from '@neondatabase/serverless';
 
 const pool = new Pool({
