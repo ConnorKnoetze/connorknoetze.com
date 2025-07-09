@@ -134,10 +134,10 @@ export default function Home() {
             {repos.map(({ bgColor, title, description, githubLink, link }, index) => (
               <div
                 key={index}
-                className={`w-full min-w-[200px] min-h-[300px] flex flex-col ${bgColor} p-5 gap-5 hover:bg-gray-800/20 hover:scale-105 hover:shadow-lg transition-all transform-all duration-500 justify-center items-center rounded-4xl`}
+                className={`w-full min-w-[200px] min-h-[300px] flex flex-col ${bgColor} p-5 gap-5 hover:scale-105 hover:shadow-lg hover:bg-gray-600/20 transition-all transform-all duration-500 justify-center items-center rounded-4xl`}
               >
-                <a href={link} className="text-center font-bold text-lg">
-                  <div>{title}</div>
+                <a href={link} target="_blank" rel="noopener noreferrer" className="text-center font-bold text-lg">
+                  <div className="hover:scale-105 transform-all duration-350">{title}</div>
                 </a>
                 <div className="text-center">{description}</div>
                 <a href={githubLink} target="_blank" rel="noopener noreferrer" className="flex gap-1 hover:scale-[105%] transform-all duration-350 text-blue-400">
