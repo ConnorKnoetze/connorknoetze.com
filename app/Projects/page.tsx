@@ -77,9 +77,9 @@ export default function Home() {
   return (
     <div className="grid grid-row min-h-screen font-[family-name:var(--font-geist-sans)] bg-gradient-to-bl from-tuna via-gondola to-diesel ">
       
-      <div className="row-start w-full" id="header">
-        <header className="flex flex-row items-center justify-center w-full bg-gradient-to-br from-blue-950 via-licorice to-cocoa_bean h-[200px] shadow-2xl p-10">
-          <h1 className="font-bold text-4xl">Projects</h1>
+      <div className="flex row-start w-full items-center justify-center" id="header">
+        <header className="flex gap-20 items-center justify-center h-auto w-full bg-gradient-to-br from-blue-950 via-licorice to-cocoa_bean shadow-2xl p-20">
+          <h1 className="flex h-full font-bold text-4xl justify-center items-center">Projects</h1>
         </header>
       </div>
 
