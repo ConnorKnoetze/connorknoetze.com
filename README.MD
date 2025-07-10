@@ -26,7 +26,7 @@ This is a modern portfolio website built using Next.js, TypeScript, and Tailwind
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/ConnorKnoetze/connorknoetze.github.io
+   git clone https://github.com/ConnorKnoetze/connorknoetze.vercel.app
    ```
 2. Navigate to the project directory:
    ```bash
@@ -61,20 +61,47 @@ portfolio_website/
 │   ├── Contact/
 │   │   └── page.tsx
 │   ├── Projects/
-│   │   └── page.tsx
+│   │   ├── page.tsx
+│   │   └── Displays/
+│   │       ├── Calculator-PyGame/
+│   │       │   └── page.tsx
+│   │       ├── Cell-Automata/
+│   │       │   └── page.tsx
+│   │       ├── connorknoetze.vercel.app/
+│   │       │   └── page.tsx
+│   │       ├── CPP-OpenGl-3Dcube/
+│   │       │   └── page.tsx
+│   │       ├── E2EE-Local-Group-Chat-App/
+│   │       │   └── page.tsx
+│   │       ├── FAILED-2Body-Problem/
+│   │       │   └── page.tsx
+│   │       ├── Java-OpenGL-Triangle-LWJGL/
+│   │       │   └── page.tsx
+│   │       ├── LC-3-Selection-Sort/
+│   │       │   └── page.tsx
+│   │       ├── LC-3-Two-Sum/
+│   │       │   └── page.tsx
+│   │       ├── Pong-Game-PyGame/
+│   │       │   └── page.tsx
+│   │       ├── PyOpenGl_Test/
+│   │       │   └── page.tsx
+│   │       └── Tic-Tac-Toe_PyGame/
+│   │           └── page.tsx
 │   ├── api/
 │   │   └── contact/
 │   │       └── route.ts
-│   │  
-│   │
+│   ├── globals.css
+│   ├── layout.tsx
 │   └── page.tsx
 ├── public/
 ├── styles/
 │   └── globals.css
-├── .env.local
 ├── next.config.ts
 ├── package.json
-└── vercel.json
+├── postcss.config.mjs
+├── tsconfig.json
+├── vercel.json
+└── website design.png
 ```
 
 ## Environment Variables
