@@ -57,7 +57,7 @@ export default function Home() {
             <a
               key={label}
               href={href}
-              className="group flex items-center gap-2 text-lg font-medium relative"
+              className="group flex items-center gap-2 text-lg font-medium relative text-white"
               style={{ minWidth: 0 }}
               {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
             >
@@ -107,7 +107,7 @@ export default function Home() {
           {/* My Skills Section */ }
           <div id="skills" className="flex flex-1 p-5 bg-black/20 rounded-4xl lg:flex-row flex-col w-full h-auto lg:h-[80vh] 2xl:h-[30vh]">
               <div className="flex flex-[0.2] lg:flex-[0.4] flex-row w-full h-full p-4 md:p-10 items-end lg:items-center justify-center">
-                <h1 className="text-4xl w-full text-center pb-5 border-b-4 border-cocoa_bean text-nowrap">My Skills</h1>
+                <h1 className="text-4xl w-full text-center text-white pb-5 border-b-4 border-cocoa_bean text-nowrap">My Skills</h1>
               </div>
               
               <div className="flex flex-1 w-full h-full pb-5 pl-5 pr-5">
@@ -137,8 +137,8 @@ export default function Home() {
               <div className="flex flex-1 flex-row w-full h-full items-center justify-center">
                 
                 <div className="grid xl:grid-cols-2 xl:grid-rows-1 lg:grid-cols-1 lg:grid-rows-2 items-center justify-center">
-                  <h1 className="text-center text-4xl border-b-2 border-cocoa_bean xl:border-0">About Me</h1>
-                  <p className="pt-5 md:pt-0 text-center text-xs md:text-lg xl:border-l-2 border-cocoa_bean xl:pl-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in odio nec nunc consectetur tristique eget ut sapien. Phasellus ac ante rutrum, consectetur mi a, auctor urna. Integer non malesuada nisi. Quisque quis nunc quis ipsum vulputate porta. Nam nec turpis commodo, egestas neque sit amet, congue orci. Nulla libero. </p>
+                  <h1 className="text-center text-4xl border-b-2 border-cocoa_bean xl:border-0 text-white">About Me</h1>
+                  <p className="pt-5 md:pt-0 text-center text-xs md:text-lg xl:border-l-2 border-cocoa_bean xl:pl-10 text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in odio nec nunc consectetur tristique eget ut sapien. Phasellus ac ante rutrum, consectetur mi a, auctor urna. Integer non malesuada nisi. Quisque quis nunc quis ipsum vulputate porta. Nam nec turpis commodo, egestas neque sit amet, congue orci. Nulla libero. </p>
                 </div>
 
               </div>
@@ -147,9 +147,9 @@ export default function Home() {
                   <div className="grid grid-rows-2 gap-10 lg:grid-cols-2 lg:grid-rows-1 items-center justify-center">
                     <a href="https://github.com/connorknoetze" target="_blank" rel="noopener noreferrer"><img src="pfp.png" alt="profile picture" className="border-2 rounded-full w-24 h-24 lg:w-40 lg:h-40 xl:w-60 xl:h-60 object-cover hover:shadow-lg shadow-white hover:scale-105 transition-transform duration-300"/></a>
                     <div>
-                      <p className="xl:text-2xl">Connor Knoetze</p><br />
-                      <p className="xl:text-2xl">Bachelor Of Science (BSc)</p><br />
-                      <p className="xl:text-2xl">Computer Science</p><br />
+                      <p className="xl:text-2xl text-white">Connor Knoetze</p><br />
+                      <p className="xl:text-2xl text-white">Bachelor Of Science (BSc)</p><br />
+                      <p className="xl:text-2xl text-white">Computer Science</p><br />
                     </div>
                   </div>
                 </div>

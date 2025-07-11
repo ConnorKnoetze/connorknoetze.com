@@ -108,7 +108,7 @@ export default function Home() {
             <a
               key={label}
               href={href}
-              className="group flex items-center gap-2 text-lg font-medium relative"
+              className="group flex items-center gap-2 text-lg font-medium relative text-white"
               style={{ minWidth: 0 }}
               {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
             >
@@ -137,11 +137,11 @@ export default function Home() {
                 className={`w-full min-w-[200px] min-h-[300px] flex flex-col ${bgColor} p-5 gap-5 hover:scale-105 hover:shadow-lg hover:bg-gray-600/20 transition-all transform-all duration-500 justify-center items-center rounded-4xl`}
               >
                 <a href={link} target="_blank" rel="noopener noreferrer" className="text-center font-bold text-lg">
-                  <div className="hover:scale-105 transform-all duration-350">{title}</div>
+                  <div className="hover:scale-105 transform-all duration-350 text-blue-400 underline">{title}</div>
                 </a>
-                <div className="text-center">{description}</div>
+                <div className="text-center text-white">{description}</div>
                 <a href={githubLink} target="_blank" rel="noopener noreferrer" className="flex gap-1 hover:scale-[105%] transform-all duration-350 text-blue-400">
-                  <img src="github.png" width={20} height={20} alt="" />
+                  <img src="github.png" width={20} height={20}/>
                   Github link
                 </a>
               </div>
