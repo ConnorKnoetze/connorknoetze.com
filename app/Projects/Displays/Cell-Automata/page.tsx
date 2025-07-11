@@ -78,7 +78,7 @@ export default function Home() {
     <div className="grid grid-row min-h-screen sm:p-0 font-[family-name:var(--font-geist-sans)] bg-gradient-to-bl from-tuna via-gondola to-diesel overflow-x-hidden">
       <div className="flex row-start w-full items-center justify-center" id="header">
         <header className="flex gap-20 items-center justify-center h-auto w-full bg-gradient-to-br from-blue-950 via-licorice to-cocoa_bean shadow-2xl p-20">
-          <h1 className="flex h-full font-bold text-4xl text-center justify-center items-center text-white">Cell Automata</h1>
+          <h1 className="flex h-full font-bold text-4xl text-center justify-center items-center text-white">Cellular Automata</h1>
         </header>
       </div>
       <div className="row-start-2 w-full flex min-h-screen items-center">
@@ -139,7 +139,7 @@ export default function Home() {
           <div className="flex flex-[0.7] w-full h-[70vh] sm:h-[100vh] bg-black/40 relative overflow-hidden order-2 lg:order-1 rounded-2xl">
             {/* Sliding Gallery */}
             <div className="flex w-full h-full whitespace-nowrap overflow-x-scroll scrollbar-hide" id="gallery">
-              {["/cell-automata-images/csgif.gif", "/Calculator-PyGame-images/calc2.png", "/Calculator-PyGame-images/calcgif.gif"].map((src, index) => (
+              {["/cell-automata-images/csgif.gif", "/cell-automata-images/golgif.gif"].map((src, index) => (
                 <div
                   key={index}
                   className="flex w-full h-full flex-shrink-0 relative items-center justify-center"
@@ -192,7 +192,7 @@ export default function Home() {
 
             {/* Gallery Indicator */}
             <div className="absolute top-2 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
-              {["/Calculator-PyGame-images/calc1.png"].map((_, index) => (
+              {["/cell-automata-images/csgif.gif", "/cell-automata-images/golgif.gif"].map((_, index) => (
                 <div
                   key={index}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${currentSlide === index ? 'bg-red-700 scale-110' : 'bg-tuna'}`}
@@ -202,7 +202,7 @@ export default function Home() {
           </div>
 
           <div className="flex flex-[0.3] w-full h-auto bg-night order-1 lg:order-2 mt-4 lg:mt-0 justify-center items-center">
-              <p className="text-lg sm:text-2xl text-center p-5 text-white">placeholder</p>
+              <p className="text-lg sm:text-2xl text-center p-5 text-white">I have built two cellular automata implementations. The first is a general-purpose cellular automaton where I created a grid of cells that can toggle between alive and dead states. I initialized the grid randomly, and each cell is visually represented with dynamic colors, making it visually engaging. I also implemented edge handling and custom rules to determine the state of each cell based on its neighbours. The second automaton is my implementation of Conway's Game of Life, where I followed the classic rules: live cells survive with 2-3 neighbours, die from underpopulation or overpopulation, and dead cells come to life with exactly 3 neighbours. I used a double-buffering approach to calculate the next generation and ensured a clean visual representation with white live cells and a dark grid background.</p>
           </div>
 
         </main>
