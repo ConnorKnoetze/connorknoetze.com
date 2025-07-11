@@ -88,7 +88,7 @@ export default function Home() {
             <a
               key={label}
               href={href}
-              className="group flex items-center gap-2 text-lg font-medium relative"
+              className="group flex items-center gap-2 text-lg font-medium relative text-white"
               style={{ minWidth: 0 }}
               {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
             >
