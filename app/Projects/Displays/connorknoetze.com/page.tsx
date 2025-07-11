@@ -78,7 +78,7 @@ export default function Home() {
     <div className="grid grid-row min-h-screen sm:p-0 font-[family-name:var(--font-geist-sans)] bg-gradient-to-bl from-tuna via-gondola to-diesel overflow-x-hidden">
       <div className="flex row-start w-full items-center justify-center" id="header">
         <header className="flex gap-20 items-center justify-center h-auto w-full bg-gradient-to-br from-blue-950 via-licorice to-cocoa_bean shadow-2xl p-20">
-          <h1 className="flex h-full font-bold text-4xl text-center justify-center items-center text-white">C++ OpenGl-3Dcube</h1>
+          <h1 className="flex h-full font-bold text-2xl text-center justify-center items-center text-white">connorknoetze.com</h1>
         </header>
       </div>
       <div className="row-start-2 w-full flex min-h-screen items-center">
