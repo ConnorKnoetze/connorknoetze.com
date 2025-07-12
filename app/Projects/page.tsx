@@ -79,7 +79,7 @@ export default function Home() {
       
       <div className="flex row-start w-full items-center justify-center" id="header">
         <header className="flex gap-20 items-center justify-center h-auto w-full bg-gradient-to-br from-blue-950 via-licorice to-cocoa_bean shadow-2xl p-20">
-          <h1 className="flex h-full font-bold text-4xl justify-center items-center">Projects</h1>
+          <h1 className="flex h-full font-bold text-4xl justify-center items-center text-white">Projects</h1>
         </header>
       </div>
 
