@@ -7,6 +7,9 @@ export default function Home() {
   const footerRef = useRef<HTMLDivElement>(null);
   const [isNavVisible, setIsNavVisible] = useState(true);
   const [scrollInterval, setScrollInterval] = useState<NodeJS.Timeout | null>(null);
+  const [isNavBarVisible, setIsNavBarVisible] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,6 +33,19 @@ export default function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth >= 640);
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const clearScrollInterval = () => {
     if (scrollInterval) {
       clearTimeout(scrollInterval);
@@ -37,11 +53,32 @@ export default function Home() {
     }
   };
 
+  const toggleNavBar = () => {
+    setIsNavBarVisible(!isNavBarVisible);
+  };
+
+  useEffect(() => {
+    const gallery = document.getElementById('gallery');
+    if (gallery) {
+      const handleScroll = () => {
+        const slideWidth = gallery.offsetWidth;
+        const currentIndex = Math.round(gallery.scrollLeft / slideWidth);
+        setCurrentSlide(currentIndex);
+      };
+
+      gallery.addEventListener('scroll', handleScroll);
+
+      return () => {
+        gallery.removeEventListener('scroll', handleScroll);
+      };
+    }
+  }, []);
+
   return (
     <div className="grid grid-row min-h-screen sm:p-0 font-[family-name:var(--font-geist-sans)] bg-gradient-to-bl from-tuna via-gondola to-diesel overflow-x-hidden">
       <div className="flex row-start w-full items-center justify-center" id="header">
         <header className="flex gap-20 items-center justify-center h-auto w-full bg-gradient-to-br from-blue-950 via-licorice to-cocoa_bean shadow-2xl p-20">
-          <h1 className="flex h-full font-bold text-4xl justify-center items-center underline">Under Construction</h1>
+          <h1 className="flex h-full font-bold text-4xl text-center justify-center items-center text-white">Failed 2 body problem</h1>
         </header>
       </div>
       <div className="row-start-2 w-full flex min-h-screen items-center">
@@ -49,7 +86,7 @@ export default function Home() {
         {/* Vertical Navigation Menu */}
         <nav 
           ref={navRef}
-          className={`flex flex-col gap-10 border-r-3 border-t-3 border-b-3 border-cocoa_bean min-w-[60px] items-left h-auto fixed top-1/2 left-0 -translate-y-1/2 z-20 bg-licorice shadow-lg rounded-r-xl pt-5 pb-5 pl-5 pr-1 justify-center transition-opacity duration-300 ${isNavVisible ? 'opacity-100' : 'opacity-0'}`}>
+          className={`flex flex-col gap-10 border-r-3 border-t-3 border-b-3 border-cocoa_bean min-w-[60px] items-left h-auto fixed top-1/2 left-0 -translate-y-1/2 z-20 bg-licorice shadow-lg rounded-r-xl pt-5 pb-5 pl-5 pr-1 justify-center transition-opacity duration-300 ${isNavBarVisible ? 'opacity-100' : 'opacity-0 sm:opacity-100'}`}>
           {[
             { href: "/", icon: "/home.png", alt: "Home Icon", label: "| Home" },
             {
@@ -70,7 +107,7 @@ export default function Home() {
             <a
               key={label}
               href={href}
-              className="group flex items-center gap-2 text-lg font-medium relative"
+              className={`group flex items-center text-white text-lg font-medium relative transition-all duration-300 ${isNavBarVisible || isLargeScreen ? 'opacity-100 max-w-[120px]' : 'opacity-0 max-w-0'}`}
               style={{ minWidth: 0 }}
               {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
             >
@@ -89,21 +126,29 @@ export default function Home() {
           ))}
         </nav>
 
-        <main className="flex flex-col lg:flex-row w-full h-full ml-20">
+        {/* Toggle Button for Small Screens */}
+        <button
+          className="sm:hidden fixed top-5 left-5 bg-red-700 text-white p-2 rounded-full z-30"
+          onClick={toggleNavBar}
+        >
+          {isNavBarVisible ? 'Hide Menu' : 'Show Menu'}
+        </button>
 
-          <div className="flex flex-[0.7] w-full h-full bg-black relative overflow-hidden order-2 lg:order-1">
+        <main className="flex flex-col lg:flex-row w-full h-full ml-2.5 lg:ml-20 mr-2.5">
+
+          <div className="flex flex-[0.7] w-full h-[70vh] sm:h-[100vh] bg-black/40 relative overflow-hidden order-2 lg:order-1 rounded-2xl">
             {/* Sliding Gallery */}
             <div className="flex w-full h-full whitespace-nowrap overflow-x-scroll scrollbar-hide" id="gallery">
-              {["/image1.png", "/image2.png", "/image3.png", "/image4.png"].map((src, index) => (
+              {["/failed-2body/fail1.gif"].map((src, index) => (
                 <div
                   key={index}
-                  className="inline-block w-full h-full flex-shrink-0 relative"
+                  className="flex w-full h-full flex-shrink-0 relative items-center justify-center"
                   style={{ minWidth: "100%" }}
                 >
                   <img
                     src={src}
                     alt={`Gallery Image ${index + 1}`}
-                    className="w-full h-full object-cover"
+                    className="w-fill h-fill lg:w-4/5 lg:h-4/5 object-contain"
                   />
                 </div>
               ))}
@@ -111,7 +156,7 @@ export default function Home() {
 
             {/* Navigation Buttons */}
             <button
-              className="hidden sm:flex absolute left-5 top-1/2 transform -translate-y-1/2 bg-white/30 text-black p-2 rounded-full shadow-lg z-10"
+              className="hidden sm:flex absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white text-black p-1 sm:p-2 rounded-full shadow-lg z-10 transition-colors duration-300"
               onMouseDown={() => {
                 const gallery = document.getElementById('gallery');
                 if (gallery) {
@@ -128,7 +173,7 @@ export default function Home() {
               &#8249;
             </button>
             <button
-              className="hidden sm:flex absolute right-5 top-1/2 transform -translate-y-1/2 bg-white/30 text-black p-2 rounded-full shadow-lg z-10"
+              className="hidden sm:flex absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white text-black p-1 sm:p-2 rounded-full shadow-lg z-10 transition-colors duration-300"
               onMouseDown={() => {
                 const gallery = document.getElementById('gallery');
                 if (gallery) {
@@ -144,12 +189,20 @@ export default function Home() {
             >
               &#8250;
             </button>
+
+            {/* Gallery Indicator */}
+            <div className="absolute top-2 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
+              {["/failed-2body/fail1.gif"].map((_, index) => (
+                <div
+                  key={index}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${currentSlide === index ? 'bg-red-700 scale-110' : 'bg-tuna'}`}
+                ></div>
+              ))}
+            </div>
           </div>
 
-          <div className="flex flex-[0.3] w-full h-full bg-white order-1 lg:order-2">
-
-
-
+          <div className="flex flex-[0.3] w-full h-auto bg-night order-1 lg:order-2 mt-4 lg:mt-0 justify-center items-center">
+              <p className="text-lg sm:text-2xl text-center p-5 text-white">This project simulates a two-body gravitational interaction using Python and Pygame. It features classes for managing linked data structures ppn, listnode, a display class for handling the Pygame window, and a body class to represent celestial objects with properties like size, mass, and position. The get_gravity function calculates gravitational acceleration between two bodies based on Newton's law. The simulation visualizes the interaction between Earth and Moon on a space-themed background and updates their positions in a game loop. However, due to a misunderstanding of the mathematics involved the body updates to and incorrect position in space.</p>
           </div>
 
         </main>
