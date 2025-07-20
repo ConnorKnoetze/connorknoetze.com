@@ -138,7 +138,7 @@ export default function Home() {
                 
                 <div className="grid xl:grid-cols-2 xl:grid-rows-1 lg:grid-cols-1 lg:grid-rows-2 items-center justify-center">
                   <h1 className="text-center text-4xl border-b-2 border-cocoa_bean xl:border-0 text-white">About Me</h1>
-                  <p className="pt-5 md:pt-0 text-center text-xs md:text-lg xl:border-l-2 border-cocoa_bean xl:pl-10 text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in odio nec nunc consectetur tristique eget ut sapien. Phasellus ac ante rutrum, consectetur mi a, auctor urna. Integer non malesuada nisi. Quisque quis nunc quis ipsum vulputate porta. Nam nec turpis commodo, egestas neque sit amet, congue orci. Nulla libero. </p>
+                  <p className="pt-5 md:pt-0 text-center text-xs md:text-lg xl:border-l-2 border-cocoa_bean xl:pl-10 text-white">Hello I'm Connor, I'm currently a second year Computer Science student at the University of Auckland. I am interested in computation, low level systems and graphics programming. In my free time away from my desk you will probably find me riding my bike through a pine forest or quarry somewhere in New Zealand, I really enjoy the outdoors and try to get out as often as possible.</p>
                 </div>
 
               </div>
