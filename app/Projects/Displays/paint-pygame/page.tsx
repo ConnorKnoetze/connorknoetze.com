@@ -139,7 +139,7 @@ export default function Home() {
           <div className="flex flex-[0.7] w-full h-[70vh] sm:h-[100vh] bg-black/40 relative overflow-hidden order-2 lg:order-1 rounded-2xl">
             {/* Sliding Gallery */}
             <div className="flex w-full h-full whitespace-nowrap overflow-x-scroll scrollbar-hide" id="gallery">
-              {["/paint-images/paint1.png","/paint-images/paint2.png","/paint-images/paint3.png","/paint-images/paint4.png"].map((src, index) => (
+              {["/paint-images/paint1.png","/paint-images/paint2.png","/paint-images/paint3.gif"].map((src, index) => (
                 <div
                   key={index}
                   className="flex w-full h-full flex-shrink-0 relative items-center justify-center"
@@ -192,7 +192,7 @@ export default function Home() {
 
             {/* Gallery Indicator */}
             <div className="absolute top-2 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
-              {["/paint-images/paint1.png","/paint-images/paint2.png","/paint-images/paint3.png","/paint-images/paint4.png"].map((_, index) => (
+              {["/paint-images/paint1.png","/paint-images/paint2.png","/paint-images/paint3.gif"].map((_, index) => (
                 <div
                   key={index}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${currentSlide === index ? 'bg-red-700 scale-110' : 'bg-tuna'}`}
@@ -202,7 +202,7 @@ export default function Home() {
           </div>
 
           <div className="flex flex-[0.3] w-full h-auto bg-night order-1 lg:order-2 mt-4 lg:mt-0 justify-center items-center">
-              <p className="text-lg sm:text-2xl text-center p-5 text-white">Placeholder</p>
+              <p className="text-lg sm:text-2xl text-center p-5 text-white">This project, Paint Pygame, is a collaborative drawing application designed for real-time interaction over a local network. Built using Python and Pygame, it allows multiple users to connect to a shared canvas and draw together using various tools, including brushes, lines, circles, and squares. Users can customize their drawing experience by selecting colors and adjusting brush sizes. The application leverages socket programming to synchronize drawing updates across all connected clients, ensuring a seamless collaborative experience.</p>
           </div>
 
         </main>
