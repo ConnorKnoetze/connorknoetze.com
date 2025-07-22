@@ -201,8 +201,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-[0.3] w-full h-auto bg-night order-1 lg:order-2 mt-4 lg:mt-0 justify-center items-center">
+          <div className="flex flex-col gap-10 flex-[0.3] w-full h-auto bg-night order-1 lg:order-2 mt-4 lg:mt-0 justify-center items-center">
               <p className="text-lg sm:text-2xl text-center p-5 text-white">I created a program that serves as a secure, end-to-end encrypted group chat application designed for local area networks (LAN). It features both a command-line interface and a pygame-based graphical user interface, allowing users to send and receive encrypted messages. The program uses Curve25519 encryption (via PyNaCl) to ensure secure communication between clients. This encryption is based on the Elliptic Curve Diffie-Hellman (ECDH) protocol, which allows two parties to establish a shared secret over an insecure channel. Each client generates a private key and a corresponding public key, exchanges public keys with other clients, and computes a shared secret to encrypt and decrypt messages securely. A server component manages client connections and facilitates message routing, while the client launcher automates the setup process, including dependency installation and launching multiple clients for testing. The application is designed to be user-friendly, with clear instructions for connecting devices on the same network and customizing the number of clients. It is ideal for private communication within a local network and supports cross-platform functionality.</p>
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/ConnorKnoetze/E2EE-Local-Group-Chat-App" className="flex text-2xl gap-2 text-blue-400 hover:scale-[105%] transition-all duration-300"><img src="/github.png" alt="github" className="w-[32px]"/>Github</a>
           </div>
 
         </main>

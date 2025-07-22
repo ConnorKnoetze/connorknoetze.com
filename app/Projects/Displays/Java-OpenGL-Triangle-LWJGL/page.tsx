@@ -201,8 +201,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-[0.3] w-full h-auto bg-night order-1 lg:order-2 mt-4 lg:mt-0 justify-center items-center">
+          <div className="flex flex-col gap-10 flex-[0.3] w-full h-auto bg-night order-1 lg:order-2 mt-4 lg:mt-0 justify-center items-center">
               <p className="text-lg sm:text-2xl text-center p-5 text-white">This project, implemented using LWJGL, demonstrates a simple OpenGL application that renders a spinning triangle. The triangle is defined with vertex and fragment shaders, and it rotates around the z-axis using a transformation matrix updated every frame. Also, the project features a square composed of two triangles, which is also rendered with modern OpenGL techniques. The application initializes an OpenGL context, sets up vertex buffers and shaders, and uses a rendering loop to display the animated geometry.</p>
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/ConnorKnoetze/Java-OpenGL-Triangle-LWJGL" className="flex text-2xl gap-2 text-blue-400 hover:scale-[105%] transition-all duration-300"><img src="/github.png" alt="github" className="w-[32px]"/>Github</a>
           </div>
 
         </main>

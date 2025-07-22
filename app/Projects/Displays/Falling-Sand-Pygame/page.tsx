@@ -201,8 +201,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-[0.3] w-full h-auto bg-night order-1 lg:order-2 mt-4 lg:mt-0 justify-center items-center">
+          <div className="flex flex-col gap-10 flex-[0.3] w-full h-auto bg-night order-1 lg:order-2 mt-4 lg:mt-0 justify-center items-center">
               <p className="text-lg sm:text-2xl text-center p-5 text-white">The Falling Sand Simulation is an interactive program that simulates the behavior of falling sand particles. Users can add sand particles to the grid, and the simulation will handle their movement based on simple physics-like rules. The program is built using Python and Pygame.</p>
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/ConnorKnoetze/Falling-Sand-Pygame" className="flex text-2xl gap-2 text-blue-400 hover:scale-[105%] transition-all duration-300"><img src="/github.png" alt="github" className="w-[32px]"/>Github</a>
           </div>
 
         </main>

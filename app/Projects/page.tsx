@@ -136,7 +136,7 @@ export default function Home() {
                 key={index}
                 className={`w-full min-w-[200px] min-h-[300px] flex flex-col ${bgColor} p-5 gap-5 hover:scale-105 hover:shadow-lg hover:bg-gray-600/20 transition-all transform-all duration-500 justify-center items-center rounded-4xl`}
               >
-                <a href={link} target="_blank" rel="noopener noreferrer" className="text-center font-bold text-lg">
+                <a href={link} className="text-center font-bold text-lg">
                   <div className="hover:scale-105 transform-all duration-350 text-blue-400 underline">{title}</div>
                 </a>
                 <div className="text-center text-white">{description}</div>

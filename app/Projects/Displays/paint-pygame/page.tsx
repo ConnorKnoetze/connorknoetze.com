@@ -201,8 +201,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-[0.3] w-full h-auto bg-night order-1 lg:order-2 mt-4 lg:mt-0 justify-center items-center">
+          <div className="flex flex-col flex-[0.3] gap-10 w-full h-auto bg-night order-1 lg:order-2 mt-4 lg:mt-0 justify-center items-center">
               <p className="text-lg sm:text-2xl text-center p-5 text-white">This project, Paint Pygame, is a collaborative drawing application designed for real-time interaction over a local network. Built using Python and Pygame, it allows multiple users to connect to a shared canvas and draw together using various tools, including brushes, lines, circles, and squares. Users can customize their drawing experience by selecting colors and adjusting brush sizes. The application leverages socket programming to synchronize drawing updates across all connected clients, ensuring a seamless collaborative experience.</p>
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/ConnorKnoetze/paint-pygame" className="flex text-2xl gap-2 text-blue-400 hover:scale-[105%] transition-all duration-300"><img src="/github.png" alt="github" className="w-[32px]"/>Github</a>
           </div>
 
         </main>

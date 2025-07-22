@@ -201,8 +201,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-[0.3] w-full h-auto bg-night order-1 lg:order-2 mt-4 lg:mt-0 justify-center items-center">
+          <div className="flex flex-col gap-10 flex-[0.3] w-full h-auto bg-night order-1 lg:order-2 mt-4 lg:mt-0 justify-center items-center">
               <p className="text-lg sm:text-2xl text-center p-5 text-white">This portfolio website features a responsive design with a sliding gallery to showcase projects, a vertical navigation menu for easy access to different sections, and a toggleable menu for smaller screens. It includes smooth transitions for a seamless user experience and a footer with quick links to key pages and external profiles. The site is designed to adapt to various screen sizes, ensuring accessibility and usability across devices.</p>
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/ConnorKnoetze/connorknoetze.com" className="flex text-2xl gap-2 text-blue-400 hover:scale-[105%] transition-all duration-300"><img src="/github.png" alt="github" className="w-[32px]"/>Github</a>
           </div>
 
         </main>

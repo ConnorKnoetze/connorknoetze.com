@@ -201,8 +201,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-[0.3] w-full h-auto bg-night order-1 lg:order-2 mt-4 lg:mt-0 justify-center items-center">
+          <div className="flex flex-col gap-10 flex-[0.3] w-full h-auto bg-night order-1 lg:order-2 mt-4 lg:mt-0 justify-center items-center">
               <p className="text-lg sm:text-2xl text-center p-5 text-white">This program is a C++ OpenGL application that renders a 3D cube in a 1000x1000 pixel window. It uses GLFW for window creation and input handling, GLEW for managing OpenGL extensions, and GLM for matrix transformations. The cube is defined with vertex positions and colors, stored in a Vertex Buffer Object (VBO) and rendered using an Element Buffer Object (EBO). A perspective projection matrix and a view matrix simulate a 3D camera, allowing movement via keyboard input (W, A, S, D, SPACE, CTRL) and mouse movement for looking around. Depth testing ensures proper 3D rendering, and shaders handle vertex transformations and fragment coloring.</p>
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/ConnorKnoetze/CPP-OpenGl-3Dcube" className="flex text-2xl gap-2 text-blue-400 hover:scale-[105%] transition-all duration-300"><img src="/github.png" alt="github" className="w-[32px]"/>Github</a>
           </div>
 
         </main>

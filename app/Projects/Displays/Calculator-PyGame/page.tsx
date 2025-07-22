@@ -201,11 +201,12 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-[0.3] w-full h-auto bg-night order-1 lg:order-2 mt-4 lg:mt-0 justify-center items-center">
+          <div className="flex flex-col gap-10 flex-[0.3] w-full h-auto bg-night order-1 lg:order-2 mt-4 lg:mt-0 justify-center items-center">
               <p className="text-lg sm:text-2xl text-center p-5 text-white">This program is a graphical calculator built using Python and the Pygame library. It features a user interface with buttons for digits (0-9),
                 basic arithmetic operators (+, -, *, /), a clear button (C), and an equals button (=). Users can input mathematical expressions either by clicking the buttons or using the keyboard. 
                 The program processes the input using infix-to-postfix conversion and evaluates the result, displaying it on the screen. The calculator also supports clearing the input and handling backspace functionality.
               </p>
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/ConnorKnoetze/Calculator-PyGame" className="flex text-2xl gap-2 text-blue-400 hover:scale-[105%] transition-all duration-300"><img src="/github.png" alt="github" className="w-[32px]"/>Github</a>
           </div>
 
         </main>

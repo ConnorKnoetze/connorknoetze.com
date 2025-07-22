@@ -201,8 +201,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-[0.3] w-full h-auto bg-night order-1 lg:order-2 mt-4 lg:mt-0 justify-center items-center">
+          <div className="flex flex-col gap-10 flex-[0.3] w-full h-auto bg-night order-1 lg:order-2 mt-4 lg:mt-0 justify-center items-center">
               <p className="text-lg sm:text-2xl text-center p-5 text-white">Jump King Style Platformer features a physics-based movement system where gravity and momentum play a central role. Each jump is calculated based on the force applied and the angle of the jump, requiring players to carefully time and position their actions. The character's interactions with platforms and obstacles are governed by precise collision detection, ensuring consistent and predictable outcomes. The game also incorporates variable jump heights, allowing players to control the intensity of their jumps by holding down the jump button. This detailed physics system creates a challenging yet fair gameplay experience.</p>
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/ConnorKnoetze/Jump-King-Style-Platformer" className="flex text-2xl gap-2 text-blue-400 hover:scale-[105%] transition-all duration-300"><img src="/github.png" alt="github" className="w-[32px]"/>Github</a>
           </div>
 
         </main>

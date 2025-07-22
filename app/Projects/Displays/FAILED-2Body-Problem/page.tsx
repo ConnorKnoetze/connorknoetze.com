@@ -201,8 +201,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-[0.3] w-full h-auto bg-night order-1 lg:order-2 mt-4 lg:mt-0 justify-center items-center">
+          <div className="flex flex-col gap-10 flex-[0.3] w-full h-auto bg-night order-1 lg:order-2 mt-4 lg:mt-0 justify-center items-center">
               <p className="text-lg sm:text-2xl text-center p-5 text-white">This project simulates a two-body gravitational interaction using Python and Pygame. It features classes for managing linked data structures ppn, listnode, a display class for handling the Pygame window, and a body class to represent celestial objects with properties like size, mass, and position. The get_gravity function calculates gravitational acceleration between two bodies based on Newton's law. The simulation visualizes the interaction between Earth and Moon on a space-themed background and updates their positions in a game loop. However, due to a misunderstanding of the mathematics involved the body updates to and incorrect position in space.</p>
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/ConnorKnoetze/FAILED-2Body-Problem" className="flex text-2xl gap-2 text-blue-400 hover:scale-[105%] transition-all duration-300"><img src="/github.png" alt="github" className="w-[32px]"/>Github</a>
           </div>
 
         </main>

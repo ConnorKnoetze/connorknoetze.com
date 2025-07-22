@@ -201,8 +201,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-[0.3] w-full h-auto bg-night order-1 lg:order-2 mt-4 lg:mt-0 justify-center items-center">
+          <div className="flex flex-col gap-10 flex-[0.3] w-full h-auto bg-night order-1 lg:order-2 mt-4 lg:mt-0 justify-center items-center">
               <p className="text-lg sm:text-2xl text-center p-5 text-white">This project is a personal exploration of OpenGL using Python, where I experiment with rendering basic shapes like squares, triangles, and trapezoids. Each shape is implemented in its own directory, with a dedicated main.py file, shaders for vertex and fragment processing, and a texture image for visual enhancement. The project leverages libraries like PyOpenGL and Pygame to handle OpenGL rendering and window management.</p>
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/ConnorKnoetze/PyOpenGl_Test" className="flex text-2xl gap-2 text-blue-400 hover:scale-[105%] transition-all duration-300"><img src="/github.png" alt="github" className="w-[32px]"/>Github</a>
           </div>
 
         </main>

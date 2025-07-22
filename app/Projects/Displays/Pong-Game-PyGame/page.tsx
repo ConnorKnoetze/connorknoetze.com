@@ -201,8 +201,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-[0.3] w-full h-auto bg-night order-1 lg:order-2 mt-4 lg:mt-0 justify-center items-center">
+          <div className="flex flex-col gap-10 flex-[0.3] w-full h-auto bg-night order-1 lg:order-2 mt-4 lg:mt-0 justify-center items-center">
               <p className="text-lg sm:text-2xl text-center p-5 text-white">This project is a Pong game implemented using Python and the Pygame library. It features a graphical interface with a game table, paddles, and a ball, all represented visually using images and fonts included in the project. The game logic is modularized across multiple files, such as ball.py, paddle.py, and game.py, which handle the behavior of the ball, paddles, and overall game mechanics, respectively. The main entry point, main.py, initializes the game, sets up the display, and runs the game loop, processing events and updating the game state at 60 frames per second. The project is structured to allow for easy maintenance and potential feature expansion.</p>
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/ConnorKnoetze/paint-pygame" className="flex text-2xl gap-2 text-blue-400 hover:scale-[105%] transition-all duration-300"><img src="/github.png" alt="github" className="w-[32px]"/>Github</a>
           </div>
 
         </main>

@@ -201,8 +201,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-[0.3] w-full h-auto bg-night order-1 lg:order-2 mt-4 lg:mt-0 justify-center items-center">
+          <div className="flex flex-col gap-10 flex-[0.3] w-full h-auto bg-night order-1 lg:order-2 mt-4 lg:mt-0 justify-center items-center">
               <p className="text-lg sm:text-2xl text-center p-5 text-white">I have built two cellular automata implementations. The first is a general-purpose cellular automaton where I created a grid of cells that can toggle between alive and dead states. I initialized the grid randomly, and each cell is visually represented with dynamic colors, making it visually engaging. I also implemented edge handling and custom rules to determine the state of each cell based on its neighbours. The second automaton is my implementation of Conway's Game of Life, where I followed the classic rules: live cells survive with 2-3 neighbours, die from underpopulation or overpopulation, and dead cells come to life with exactly 3 neighbours. I used a double-buffering approach to calculate the next generation and ensured a clean visual representation with white live cells and a dark grid background.</p>
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/ConnorKnoetze/Cell-Automata" className="flex text-2xl gap-2 text-blue-400 hover:scale-[105%] transition-all duration-300"><img src="/github.png" alt="github" className="w-[32px]"/>Github</a>
           </div>
 
         </main>

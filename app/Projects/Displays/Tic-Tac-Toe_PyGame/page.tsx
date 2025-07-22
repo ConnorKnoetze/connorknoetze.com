@@ -201,8 +201,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex flex-[0.3] w-full h-auto bg-night order-1 lg:order-2 mt-4 lg:mt-0 justify-center items-center">
+          <div className="flex flex-col flex-[0.3] gap-10 w-full h-auto bg-night order-1 lg:order-2 mt-4 lg:mt-0 justify-center items-center">
               <p className="text-lg sm:text-2xl text-center p-5 text-white">This project is a simple yet engaging implementation of the classic Tic-Tac-Toe game using Python and the PyGame library. I designed it to provide an interactive and visually appealing experience, complete with a graphical board and player symbols (X and O). The game features a turn-based system, where players alternate marking their spots on the board. It includes logic to check for winning conditions, such as horizontal, vertical, and diagonal alignments, and displays a win or draw message accordingly. The interface is enhanced with custom fonts and images for the board and player symbols, making it more immersive. Overall, this project combines fun gameplay with clean, modular code, making it a great example of a beginner-friendly PyGame application.</p>
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/ConnorKnoetze/Tic-Tac-Toe_pygame" className="flex text-2xl gap-2 text-blue-400 hover:scale-[105%] transition-all duration-300"><img src="/github.png" alt="github" className="w-[32px]"/>Github</a>
           </div>
 
         </main>
