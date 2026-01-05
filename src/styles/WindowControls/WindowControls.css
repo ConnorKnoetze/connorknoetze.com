@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+.window-controls {
+    height: 38px;
+    min-height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0;
+}
+
+.window-control-button {
+    padding: 8px;
+    width: 42px;
+    height: 100%;
+    min-height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.window-control-button.close {
+    border-radius: 0 12px 0 0;
+}
+
+.window-control-icon {
+    width: 12px;
+    filter: invert(100%);
+}
+
+@media (hover: hover) {
+    .window-control-button:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    .window-control-button.close:hover{
+        background-color: rgba(255, 0, 0, 0.836);
+    }
+}

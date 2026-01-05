@@ -1,0 +1,228 @@
+@import "tailwindcss";
+
+@import "../Panel/Panel.css";
+
+.project-panel-content{
+    background-color: rgb(31, 31, 31);
+}
+
+.project-panel-header{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.header-tag-area {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px 0 0 0;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.header-left-radius {
+    width: 12px;
+    height: 100%;
+    border: 2px solid rgb(31, 31, 31);
+    border-radius: 12px 0 6px 0;
+    background-color: rgb(31, 31, 31);
+}
+
+.header-right-radius {
+    width: 12px;
+    height: 100%;
+    border: 2px solid rgb(31, 31, 31);
+    border-radius: 0 0 0 6px;
+    background-color: rgb(31, 31, 31);
+}
+
+.header-tag-background {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(31, 31, 31, 1);
+}
+
+.header-top-radius {
+    width: 100%;
+    height: 6px;
+    border-radius: 6px 6px 0 0;
+    background-color: rgba(31, 31, 31, 1);
+}
+
+.header-tag {
+    display: flex;
+    align-items: center;
+    font-size: medium;
+    width: 18rem;
+    padding: 4px 12px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 6px 6px 0 0;
+}
+
+.header-tag img {
+    width: 12px;
+    margin-left: auto;
+    cursor: pointer;
+    filter: invert(100);
+}
+
+.project-panel-controls {
+    display:flex;
+    flex-direction: row;
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+    align-items: stretch;
+}
+
+.project-panel-controls > * {
+    flex: 1 1 0;
+}
+
+.arrow-image-area {
+    width: 32px;
+    height: 32px;
+    margin: 8px;
+    padding: 4px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 70ms ease-in-out;
+    flex: 0 0 auto;
+}
+
+.arrow-image-area img {
+    width: 14px;
+    filter: invert(100);
+}
+
+.file-path-area {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 3px 12px;
+    gap: 2px;
+    margin: 8px 0px 8px 0px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    flex: 3 1 0;
+}
+
+.file-path-area img {
+    width: 18px;
+    filter: invert(80%);
+}
+
+.file-path-area p {
+    font-size: 14px;
+    color: var(--foreground);
+}
+
+.search-area {
+    margin: 8px;
+    padding: 4px 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    flex: 1 1 0;
+    border-bottom: 1px solid transparent;
+    transition: border-color 120ms ease-in-out;
+}
+
+.search-area:focus-within {
+    border-color: #e63946;
+}
+
+.search-area input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--foreground);
+    font-size: 14px;
+    flex: 1;
+}
+
+.search-area img {
+    position: relative;
+    right: 5px;
+    width: 12px;
+    filter: invert(80%);
+}
+
+.file-path-arrow-image-area {
+    width: 25px;
+    height: 25px;
+    margin: 0 8px;
+    padding: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.repo-grid {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 16px;
+    overflow-y: auto;
+}
+
+.repo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.repo-item button {
+    padding: 10px;
+    border: 2px solid transparent;
+    border-radius: 4px;
+}
+
+.repo-item img {
+    width: 100%;
+    height: 64px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.repo-item p {
+    font-size: 16px;
+    color: var(--foreground);
+    word-break: break-word;
+}
+
+@media (hover: hover) {
+    .repo-item button:hover {
+        cursor: pointer;
+        background-color: rgba(255, 255, 255, 0.1);
+        transition: background-color 150ms ease-out;
+    }
+
+    .header-tag img:hover {
+        filter: invert(70%);
+        transition: filter 150ms ease-out;
+    }
+
+    .arrow-image-area:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+        transition: background-color 70ms ease-in-out;
+    }
+    .file-path-arrow-image-area:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+        transition: background-color 70ms ease-in-out;
+    }
+}

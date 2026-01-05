@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+.wallpaper-panel-content,
+.about-me-panel-content,
+.project-panel-content,
+.welcome-panel-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -52.5%);
+    width: 80%;
+    max-width: 99rem;
+    height: 85%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 24px;
+    transition: width 0.3s ease, height 0.3s ease, border-radius 0.3s ease;
+}
+
+.wallpaper-panel-content.maximized,
+.about-me-panel-content.maximized,
+.project-panel-content.maximized,
+.welcome-panel-content.maximized {
+    width: 100vw;
+    height: 100vh;
+    transform: translate(-50%, -50%);
+    max-width: none;
+    border-radius: 0;
+    transition: width 0.3s ease, height 0.3s ease, border-radius 0.3s ease;
+}
+
+.wallpaper-panel-header,
+.about-me-panel-header,
+.project-panel-header,
+.welcome-panel-header {
+    height: 38px;
+    width: 100%;
+}
+
+.wallpaper-panel-body,
+.about-me-panel-body,
+.project-panel-body,
+.welcome-panel-body {
+    flex: 1;
+    padding: 5px 16px 16px 16px;
+}

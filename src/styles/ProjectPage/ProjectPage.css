@@ -1,0 +1,178 @@
+.project-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow: hidden;
+    background: radial-gradient(circle at 20% 15%, rgba(96, 165, 255, 0.08), transparent 30%),
+        radial-gradient(circle at 85% 12%, rgba(10, 132, 255, 0.06), transparent 28%),
+        linear-gradient(140deg, rgba(18, 20, 24, 0.94), rgba(16, 18, 22, 0.88));
+}
+
+.project-shell {
+    width: min(1200px, 100%);
+    height: calc(100vh - 40px);
+    background: linear-gradient(150deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(16px) saturate(1.2);
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    color: #f7f8fa;
+}
+
+.project-shell-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 0 0 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    flex-shrink: 0;
+}
+
+.project-meta-inline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.project-meta-inline strong {
+    color: rgba(255, 255, 255, 0.9);
+    margin-right: 4px;
+}
+
+.project-eyebrow {
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.72);
+    margin: 0 0 6px;
+}
+
+.project-title {
+    margin: 0;
+    font-size: 30px;
+    line-height: 1.22;
+    font-weight: 600;
+}
+
+.project-lede {
+    margin: 8px 0 0;
+    color: rgba(255, 255, 255, 0.84);
+    line-height: 1.45;
+}
+
+.project-shell-body {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: auto;
+    gap: 12px;
+    margin-top: 12px;
+    flex: 1;
+    overflow: hidden;
+    min-height: 0;
+    align-content: start;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.project-shell-body::-webkit-scrollbar {
+    display: none;
+}
+
+.project-card {
+    background: linear-gradient(165deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 14px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+    height: 100%;
+}
+
+.project-card-label {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.image-card {
+    min-height: 0;
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-topics {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.topic-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.topic-tag {
+    background: rgba(96, 165, 255, 0.16);
+    color: #a3d1ff;
+    padding: 6px 10px;
+    border-radius: 10px;
+    font-size: 13px;
+    border: 1px solid rgba(96, 165, 255, 0.32);
+}
+
+.project-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #0b1220;
+    background: linear-gradient(135deg, #0a84ff, #60a5ff);
+    border: none;
+    box-shadow: 0 12px 30px rgba(10, 132, 255, 0.28);
+    transition: transform 120ms ease, box-shadow 160ms ease;
+}
+
+.project-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 14px 32px rgba(10, 132, 255, 0.32);
+}
+
+.project-muted {
+    color: rgba(255, 255, 255, 0.7);
+    padding: 4px;
+}
+
+.project-error {
+    color: #fca5a5;
+    padding: 4px;
+}
+
+/* Loading and error states inside cards */
+.project-card p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.45;
+}
