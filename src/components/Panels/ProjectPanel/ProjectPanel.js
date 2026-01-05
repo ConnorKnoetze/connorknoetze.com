@@ -5,7 +5,7 @@ import WindowControls from "../../WindowControls/WindowControls";
 import "@/styles/Panels/ProjectPanel/ProjectPanel.css";
 
 export default function ProjectPanel(){
-    const blacklistedRepos = ["ConnorKnoetze", "Dart_Board", "Java-OpenGL-Triangle-LWJGL"];
+    const blacklistedRepos = ["ConnorKnoetze", "Dart_Board", "Java-OpenGL-Triangle-LWJGL", "new-portfolio"];
     const [repos, setRepos] = useState([]);
     const [filteredRepos, setFilteredRepos] = useState([]);
     const [loading, setLoading] = useState(true);

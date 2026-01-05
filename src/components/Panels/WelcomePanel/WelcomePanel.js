@@ -23,7 +23,7 @@ export default function WelcomePanel(){
                         <ul className="welcome-list">
                             <li><span className="dot success" />About Me: the full story, contact links, and recent work.</li>
                             <li><span className="dot info" />Projects: a sorted list with details and links.</li>
-                            <li><span className="dot neutral" />Wallpapers: swap backgrounds; my personal section of wallpapers I actually use.</li>
+                            <li><span className="dot neutral" />Wallpapers: swap backgrounds; my personal selection of wallpapers.</li>
                         </ul>
                     </div>
                 </section>
