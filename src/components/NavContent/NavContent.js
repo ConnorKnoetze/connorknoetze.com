@@ -6,8 +6,8 @@ import { getCurrentWallpaper } from '@/utils/getCurrentWallpaper';
 export default function NavContent(){
     const [currentTime, setCurrentTime] = useState('');
     const [currentDate, setCurrentDate] = useState('');
-    const [trayOpen, setTrayOpen] = useState(false);
-    const [isRotated, setIsRotated] = useState(false);
+    const [trayOpen, setTrayOpen] = useState(true);
+    const [isRotated, setIsRotated] = useState(true);
 
     useEffect(() => {
         // Function to update time and date
@@ -84,7 +84,7 @@ export default function NavContent(){
                         }}
                         aria-label='folder'
                     >
-                        <img src="/images/folder.png"/>
+                        <img src="/images/icons/Windows_Notepad_icon.png"/>
                     </button>
                 </div>
                 <span className="widgets-area">
