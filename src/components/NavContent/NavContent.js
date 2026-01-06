@@ -88,7 +88,7 @@ export default function NavContent(){
                     </button>
                 </div>
                 <span className="widgets-area">
-                    <div className="widget-item" style={{padding: '15px 8px', userSelect: 'none', cursor: 'pointer'}} onClick={handleTrayClick}>
+                    <div className="widget-item" style={{padding: '15px 8px', userSelect: 'none', cursor: 'pointer', backgroundColor: trayOpen ? 'rgba(255, 255, 255, 0.1)' : 'transparent'}} onClick={handleTrayClick}>
                         <img style={{width: '11px', transform: isRotated ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s'}} src="/images/tray/tray.png"/>
                     </div>
                     <div className="widget-item">
