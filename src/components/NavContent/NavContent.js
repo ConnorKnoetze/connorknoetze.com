@@ -93,7 +93,6 @@ export default function NavContent(){
                     </div>
                     <div className="widget-item">
                         <img className='invert' src="/images/tray/wifi.png"/>
-                        <img src="/images/tray/volume.png"/>
                     </div>
                     <div className="widget-item" style={{flexDirection: 'column', fontSize: '12px', lineHeight: '1', padding: '6px 8px', textAlign: 'center'}}>
                         <div className="time">

@@ -1,0 +1,196 @@
+.music-player-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    background:
+		radial-gradient(circle at 20% 15%, rgba(96, 165, 255, 0.1), transparent 32%),
+		radial-gradient(circle at 85% 12%, rgba(10, 132, 255, 0.08), transparent 28%),
+		linear-gradient(140deg, rgba(18, 20, 24, 0.95), rgba(16, 18, 22, 0.9));
+    color: #ededed;
+    padding: 16px;
+    border-radius: 12px;
+    width: 280px;
+    height: 480px;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    font-family: "Segoe UI Variable", "Segoe UI", Tahoma, "Geneva", Verdana, sans-serif;
+    transition: width 0.3s ease, height 0.3s ease, padding 0.35s ease, border-radius 0.35s ease, box-shadow 0.35s ease;
+}
+
+.music-player-container.minimized {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 0;
+}
+
+.music-player-container.expanded {
+    cursor: default;
+}
+
+.music-player-handle.minimized {
+    display: block;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    pointer-events: none;
+}
+
+.music-player-handle.expanded {
+    display: block;
+    margin-bottom: 8px;
+    height: 2px;
+    width: 90%;
+    font-size: 24px;
+    color: rgba(85, 85, 85, 0.5);
+    cursor: pointer;
+    user-select: none;
+    border: 2px solid rgb(85, 85, 85);
+    border-radius: 15px;
+    opacity: 1;
+    transform: none;
+    transition: all 0.25s ease;
+}
+
+.music-player-handle.expanded:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    color: rgba(200, 200, 200, 0.7);
+    transform: scale(102%);
+}
+
+.minimized-player {
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.minimized-player svg {
+    width: 25px;
+    height: 25px;
+}
+
+.music-player-body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.music-player-container.minimized .music-player-body {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.95);
+    pointer-events: none;
+}
+
+
+.music-player-title {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.music-player-controls {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    justify-content: center;
+}
+
+.music-player-controls button {
+    flex: 1;
+    padding: 8px 12px;
+    background: #ffffff0f;
+    color: #ededed;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.music-player-controls button:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.music-player-controls button:active {
+    transform: translateY(0);
+}
+
+.music-player-volume {
+    width: 100%;
+}
+
+.music-player-volume input[type="range"] {
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    outline: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+.music-player-volume input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ededed;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.music-player-volume input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.3);
+    box-shadow: 0 0 8px rgba(237, 237, 237, 0.5);
+}
+
+.music-player-volume input[type="range"]::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ededed;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.music-player-volume input[type="range"]::-moz-range-thumb:hover {
+    transform: scale(1.3);
+    box-shadow: 0 0 8px rgba(237, 237, 237, 0.5);
+}
+
+.music-player-track-info {
+    font-size: 12px;
+    opacity: 0.7;
+    width: 100%;
+    text-align: center;
+    word-break: break-word;
+    pointer-events: none;
+}
+
+.artist-thumbnail img{
+    border-radius: 8%;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
