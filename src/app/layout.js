@@ -65,6 +65,9 @@ export const metadata = {
   alternates: {
     canonical: "/",
   },
+};
+
+export const viewport = {
   themeColor: "#0a84ff",
 };
 
