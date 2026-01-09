@@ -6,9 +6,17 @@ import WallpaperPanel from "@/components/Panels/WallpaperPanel/WallpaperPanel";
 import ProjectPanel from "../Panels/ProjectPanel/ProjectPanel";
 import AboutMePanel from "../Panels/AboutMePanel/AboutMePanel";
 import WelcomePanel from "../Panels/WelcomePanel/WelcomePanel";
+import PerProjectPanel from "../Panels/PerProjectPanel/PerProjectPanel";
 
 export default function DesktopContent(){
     const [clickedItem, setClickedItem] = useState(null);
+    const [selectedRepo, setSelectedRepo] = useState(null);
+
+    const handleRepoSelect = (repoName) => {
+        setSelectedRepo(repoName);
+        const perProjectPanel = document.querySelector('.per-project-panel') || document.querySelector('.per-project-panel-active');
+        perProjectPanel.className = perProjectPanel.className.includes('per-project-panel-active') ? 'per-project-panel' : 'per-project-panel-active';
+    };
 
     useEffect(() => {
         document.addEventListener('keydown', closePanelOnEscape);
@@ -77,11 +85,15 @@ export default function DesktopContent(){
             </div>
 
             <div name="project" className="project-panel" onClick={() => togglePanel('project')}>
-                <ProjectPanel/>
+                <ProjectPanel onRepoSelect={handleRepoSelect}/>
             </div>
 
             <div name="wallpaper" className="wallpaper-panel" onClick={() => togglePanel('wallpaper')}>
                 <WallpaperPanel/>
+            </div>
+
+            <div className="per-project-panel" name="per-project" onClick={() => togglePanel('per-project')}>
+                <PerProjectPanel name={selectedRepo}/>
             </div>
             
         </div>

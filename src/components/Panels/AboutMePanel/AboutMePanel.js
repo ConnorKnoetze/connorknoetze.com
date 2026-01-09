@@ -3,6 +3,7 @@
 import WindowControls from "../../WindowControls/WindowControls";
 import "@/styles/Panels/Panel/Panel.css";
 import "@/styles/Panels/AboutMePanel/AboutMePanel.css";
+import Footer from "@/components/Footer/Footer";
 
 export default function AboutMePanel(){
     const favoriteProjects = [
@@ -134,6 +135,9 @@ export default function AboutMePanel(){
                         </div>
                     </div>
                 </section>
+                <div className="wallpaper-panel-footer">
+                    <Footer />
+                </div>
             </div>
         </div>
     );

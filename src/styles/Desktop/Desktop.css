@@ -55,7 +55,8 @@
 .wallpaper-panel,
 .project-panel,
 .about-me-panel,
-.welcome-panel {
+.welcome-panel,
+.per-project-panel {
     display: none;
     opacity: 0;
 }
@@ -63,7 +64,8 @@
 .wallpaper-panel-active, 
 .project-panel-active,
 .about-me-panel-active,
-.welcome-panel-active {
+.welcome-panel-active,
+.per-project-panel-active {
     display: block;
     position: fixed;
     opacity: 1;

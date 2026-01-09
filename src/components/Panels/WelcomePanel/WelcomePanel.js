@@ -4,6 +4,7 @@ import "@/styles/Panels/Panel/Panel.css";
 import "@/styles/Panels/WelcomePanel/WelcomePanel.css";
 import WindowControls from "../../WindowControls/WindowControls";
 import Link from "next/link";
+import Footer from "@/components/Footer/Footer";
 
 // Basic JSON-LD to describe this welcome page context for search engines
 const jsonLd = {
@@ -82,15 +83,16 @@ export default function WelcomePanel(){
                     </div>
                 </section>
             </section>
-            
+
+            <div className="welcome-panel-footer">
+                <Footer />
+            </div>
+
             <script
                 type="application/ld+json"
                 // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
-            <footer className="border-t border-gray-600 py-4 text-center text-sm text-gray-600">
-            © {new Date().getFullYear()} Connor Knoetze
-            </footer>
         </article>
     );
 }

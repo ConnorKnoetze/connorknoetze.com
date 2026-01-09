@@ -3,13 +3,15 @@ import "@/styles/WindowControls/WindowControls.css";
 
 export default function WindowControls({ panelName }){
     function closeWindow(panelName) {
-        const wallpaperPanel = document.querySelector(`.${panelName}-panel-active`);
-        wallpaperPanel.className = `${panelName}-panel`;
+        const Panel = document.querySelector(`.${panelName}-panel-active`);
+        Panel.className = `${panelName}-panel`;
     }
 
     function maximizeWindow(panelName) {
-        const wallpaperPanelContent = document.querySelector(`.${panelName}-panel-content`);
-        wallpaperPanelContent.classList.toggle('maximized');
+        const PanelContent = document.querySelector(`.${panelName}-panel-content`);
+        const musicPlayer = document.querySelector('.music-player-container.minimized');
+        musicPlayer.classList.toggle('hidden');
+        PanelContent.classList.toggle('maximized');
     }
 
     return (
