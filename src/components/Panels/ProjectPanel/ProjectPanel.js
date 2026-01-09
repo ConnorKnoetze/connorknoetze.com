@@ -3,8 +3,9 @@
 import { useEffect, useState } from "react";
 import WindowControls from "../../WindowControls/WindowControls";
 import "@/styles/Panels/ProjectPanel/ProjectPanel.css";
+import Footer from "@/components/Footer/Footer";
 
-export default function ProjectPanel(){
+export default function ProjectPanel({ onRepoSelect }){
     const blacklistedRepos = ["ConnorKnoetze", "Dart_Board", "Java-OpenGL-Triangle-LWJGL", "new-portfolio", "old_portfolio"];
     const [repos, setRepos] = useState([]);
     const [filteredRepos, setFilteredRepos] = useState([]);
@@ -56,8 +57,8 @@ export default function ProjectPanel(){
     }
 
     function closeWindow(panelName) {
-        const wallpaperPanel = document.querySelector(`.${panelName}-panel-active`);
-        wallpaperPanel.className = `${panelName}-panel`;
+        const Panel = document.querySelector(`.${panelName}-panel-active`);
+        Panel.className = `${panelName}-panel`;
     }
 
     function getCurrentWallpaper() {
@@ -66,6 +67,10 @@ export default function ProjectPanel(){
         const match = backgroundImage.match(/wallpapers\/(.*?)"/);
         return match ? match[1] : 'default.jpg';
     }
+
+    const handleRepoSelect = (repoName) => {
+        onRepoSelect(repoName); // Call the passed function
+    };
 
     return (
         <div className="project-panel-content" onClick={(e) => e.stopPropagation()}>
@@ -109,14 +114,14 @@ export default function ProjectPanel(){
                 </form>
             </div>
 
-            <div className="project-panel-body">
+            <div className="project-panel-body flex flex-col flex-direction justify-between h-full">
                 {loading && <p>Loading projects...</p>}
                 {error && <p style={{color: 'red'}}>{error}</p>}
                 {!loading && !error && (
                     <div id="repo-grid" className="repo-grid">
                         {filteredRepos.map(repo => (
                             <div key={repo.id} className="repo-item">
-                                <button onDoubleClick={() => window.location.href = `/project?name=${repo.name}&w=${getCurrentWallpaper()}`} className="repo-button">
+                                <button onDoubleClick={() => (closeWindow('project'), handleRepoSelect(repo.name))} className="repo-button">
                                     <img src={'/images/icons/filled_folder.png'} alt={`${repo.name}`} />
                                     <p>{repo.name}</p>
                                 </button>
@@ -124,6 +129,9 @@ export default function ProjectPanel(){
                         ))}
                     </div>
                 )}
+                <div className="project-panel-footer">
+                    <Footer />
+                </div>
             </div>
         </div>
     );

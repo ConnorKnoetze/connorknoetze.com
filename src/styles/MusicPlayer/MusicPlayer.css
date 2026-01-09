@@ -20,7 +20,7 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     font-family: "Segoe UI Variable", "Segoe UI", Tahoma, "Geneva", Verdana, sans-serif;
-    transition: width 0.3s ease, height 0.3s ease, padding 0.35s ease, border-radius 0.35s ease, box-shadow 0.35s ease;
+    transition: width 0.3s ease-out, height 0.3s ease-out, padding 0.35s ease, box-shadow 0.35s ease;
     user-select: none;
 }
 
@@ -34,7 +34,16 @@
     align-items: center;
     cursor: pointer;
     gap: 0;
-    transition: transform 0.25s ease, width 0.3s ease, height 0.3s ease, padding 0.35s ease, border-radius 0.35s ease, box-shadow 0.35s ease;
+    transition: transform 0.25s ease-out, width 0.3s ease-out, height 0.3s ease, padding 0.35s ease, box-shadow 0.35s ease;
+}
+
+.music-player-container.minimized.hidden {
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: none;
+    transition: none;
 }
 
 .music-player-container.minimized:hover {

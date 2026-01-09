@@ -34,16 +34,16 @@ export default function NavContent(){
     };
 
     const togglePanels = (panelName) => {
-        // close active panels
-        const activePanels = document.querySelectorAll('[class$="-panel-active"]');
-        activePanels.forEach(panel => {
-            panel.className = panel.className.replace('-active', '');
-        }
-        );
-
         // open selected panel
-        const panel = document.querySelector(`.${panelName}-panel`) || document.querySelector(`.${panelName}-panel-active`);
-        panel.className = panel.className.includes(`${panelName}-panel-active`) ? `${panelName}-panel` : `${panelName}-panel-active`;
+        const panel = document.querySelector(`.${panelName}-panel-active`) || document.querySelector(`.${panelName}-panel`);
+        if (panel.className === `${panelName}-panel-active`) {
+            panel.className = `${panelName}-panel`;
+            return;
+        }
+        console.log(panel.className);
+
+        closeAllPanels();
+        panel.className = panel.className === `${panelName}-panel-active` ? `${panelName}-panel` : `${panelName}-panel-active`;
         
     }
 

@@ -64,7 +64,7 @@ export default function MusicPlayer() {
     function createHowl(index) {
         return new Howl({
             src: [TRACKS[index]],
-            volume: 0.1,
+            volume: 0.05,
             onend: handleEnd,
         });
     }
@@ -129,7 +129,7 @@ export default function MusicPlayer() {
         // Update CSS variable for progress bar
         const slider = document.getElementById('volume-slider');
         if (slider) {
-            const percentage = (volume * 100) + '%';
+            const percentage = (volume * 200) + '%';
             slider.style.setProperty('--track-fill', percentage);
         }
     }
@@ -168,9 +168,9 @@ export default function MusicPlayer() {
                             name="volume"
                             type="range"
                             min="0"
-                            max="1"
+                            max="0.5"
                             step="0.01"
-                            defaultValue="0.1"
+                            defaultValue="0.05"
                             onChange={(e) => setVolume(parseFloat(e.target.value))}
                         />
                     </div>
