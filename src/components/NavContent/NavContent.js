@@ -33,6 +33,27 @@ export default function NavContent(){
         setTrayOpen(!trayOpen);
     };
 
+    const togglePanels = (panelName) => {
+        // close active panels
+        const activePanels = document.querySelectorAll('[class$="-panel-active"]');
+        activePanels.forEach(panel => {
+            panel.className = panel.className.replace('-active', '');
+        }
+        );
+
+        // open selected panel
+        const panel = document.querySelector(`.${panelName}-panel`) || document.querySelector(`.${panelName}-panel-active`);
+        panel.className = panel.className.includes(`${panelName}-panel-active`) ? `${panelName}-panel` : `${panelName}-panel-active`;
+        
+    }
+
+    const closeAllPanels = () => {
+        const activePanels = document.querySelectorAll('[class$="-panel-active"]');
+        activePanels.forEach(panel => {
+            panel.className = panel.className.replace('-active', '');
+        });
+    }
+
     return (
         <nav className="w-full bg-[color-mix(in_srgb,var(--color-gray-950),transparent_40%)] backdrop-blur-lg border-t border-[color-mix(in_srgb,var(--color-blue-500),transparent_99%)] saturate-150">
             <div className="icon-wrapper">
@@ -41,7 +62,7 @@ export default function NavContent(){
                         className="nav-item"
                         type='button'
                         onClick={() => {
-                            window.location.href = `/desktop?w=${getCurrentWallpaper()}`;
+                            closeAllPanels();
                         }}
                     >
                         <svg
@@ -80,13 +101,44 @@ export default function NavContent(){
                         className="nav-item"
                         type='button'
                         onClick={() => {
-                            window.location.href = `/desktop?w=${getCurrentWallpaper()}`;
+                            togglePanels('welcome');
                         }}
-                        aria-label='folder'
+                        aria-label='text'
                     >
                         <img src="/images/icons/Windows_Notepad_icon.png"/>
                     </button>
+                    <button 
+                        className="nav-item"
+                        type='button'
+                        onClick={() => {
+                            togglePanels('about-me');
+                        }}
+                        aria-label='pdf'
+                    >
+                        <img src="/images/icons/pdf.png"/>
+                    </button>
+                    <button 
+                        className="nav-item"
+                        type='button'
+                        onClick={() => {
+                            togglePanels('project');
+                        }}
+                        aria-label='folder'
+                    > 
+                        <img src="/images/folder.png"/>
+                    </button>
+                    <button
+                        className="nav-item"
+                        type='button'
+                        onClick={() => {
+                            togglePanels('wallpaper');
+                        }}
+                        aria-label='photos'
+                    >
+                        <img src="/images/icons/photos.png"/>
+                    </button>
                 </div>
+
                 <span className="widgets-area">
                     <div className="widget-item" style={{padding: '15px 8px', userSelect: 'none', cursor: 'pointer', backgroundColor: trayOpen ? 'rgba(255, 255, 255, 0.1)' : 'transparent'}} onClick={handleTrayClick}>
                         <img style={{width: '11px', transform: isRotated ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s'}} src="/images/tray/tray.png"/>

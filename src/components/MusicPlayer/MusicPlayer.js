@@ -19,6 +19,7 @@ const TRACK_NAMES = [
 
 export default function MusicPlayer() {
     const soundRef = useRef(null);
+    const playerRef = useRef(null);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isPlaying, setIsPlaying] = useState(true);
     const [isMuted, setIsMuted] = useState(false);
@@ -39,6 +40,25 @@ export default function MusicPlayer() {
     useEffect(() => {
         const timer = setTimeout(() => setIsMinimized(true), 7500);
         return () => clearTimeout(timer);
+    }, []);
+
+    useEffect(() => {
+        // Initialize slider CSS variable on mount
+        const slider = document.getElementById('volume-slider');
+        if (slider) {
+            slider.style.setProperty('--track-fill', '10%');
+        }
+    }, []);
+
+    useEffect(() => {
+        function handleClickOutside(e) {
+            if (playerRef.current && !playerRef.current.contains(e.target)) {
+                setIsMinimized(true);
+            }
+        }
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
 
     function createHowl(index) {
@@ -106,6 +126,12 @@ export default function MusicPlayer() {
         if (soundRef.current) {
             soundRef.current.volume(volume);
         }
+        // Update CSS variable for progress bar
+        const slider = document.getElementById('volume-slider');
+        if (slider) {
+            const percentage = (volume * 100) + '%';
+            slider.style.setProperty('--track-fill', percentage);
+        }
     }
 
     function toggleMinimize() {
@@ -114,6 +140,7 @@ export default function MusicPlayer() {
 
     return (
         <div
+            ref={playerRef}
             className={`music-player-container ${isMinimized ? "minimized" : "expanded"}`}
             onClick={isMinimized ? toggleMinimize : undefined}
         >
@@ -130,13 +157,15 @@ export default function MusicPlayer() {
                     <div className="music-player-track-info">{TRACK_NAMES[currentIndex]}</div>
                     <div className="music-player-track-info pointer-events-auto"><button>auv</button></div>
                     <div className="music-player-controls">
-                        <button onClick={previousTrack}>⏮</button>
-                        <button onClick={toggleSound}>{isPlaying ? "⏸" : "▶"}</button>
-                        <button onClick={nextTrack}>⏭</button>
-                        <button className="mute-button" onClick={toggleMute}>{isMuted ? "🔇" : "🔊"}</button>
+                        <button onClick={previousTrack}><img src="/images/music/prev-track.png"></img></button>
+                        <button onClick={toggleSound}>{isPlaying ? <img src="/images/music/pause.png"></img> : <img src="/images/music/play.png"></img>}</button>
+                        <button onClick={nextTrack}><img src="/images/music/next-track.png"></img></button>
+                        <button className="mute-button" onClick={toggleMute}>{isMuted ? <img src="/images/music/muted.png"></img> : <img src="/images/music/volume.png"></img>}</button>
                     </div>
                     <div className="music-player-volume">
                         <input
+                            id="volume-slider"
+                            name="volume"
                             type="range"
                             min="0"
                             max="1"

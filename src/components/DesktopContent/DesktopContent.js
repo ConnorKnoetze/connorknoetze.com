@@ -1,7 +1,7 @@
 'use client';
 
 import "@/styles/Desktop/Desktop.css";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import WallpaperPanel from "@/components/Panels/WallpaperPanel/WallpaperPanel";
 import ProjectPanel from "../Panels/ProjectPanel/ProjectPanel";
 import AboutMePanel from "../Panels/AboutMePanel/AboutMePanel";
@@ -9,6 +9,20 @@ import WelcomePanel from "../Panels/WelcomePanel/WelcomePanel";
 
 export default function DesktopContent(){
     const [clickedItem, setClickedItem] = useState(null);
+
+    useEffect(() => {
+        document.addEventListener('keydown', closePanelOnEscape);
+        return () => document.removeEventListener('keydown', closePanelOnEscape);
+    }, []);
+
+    function closePanelOnEscape(e) {
+        if (e.key === 'Escape') {
+            const activePanels = document.querySelectorAll('[class$="-panel-active"]');
+            activePanels.forEach(panel => {
+                panel.className = panel.className.replace('-active', '');
+            });
+        }
+    }
 
     function clearHighlight(e) {
         if (e.target.className.includes('icon-image') || e.target.className.includes('icon-item') || e.target.className.includes('icon-item-clicked')) return;
@@ -24,14 +38,18 @@ export default function DesktopContent(){
     }
 
     function togglePanel(name) {
-        // Logic to open wallpaper panel
-        const wallpaperPanel = document.querySelector(`.${name}-panel`) || document.querySelector(`.${name}-panel-active`);
-        wallpaperPanel.className = wallpaperPanel.className.includes(`${name}-panel-active`) ? `${name}-panel` : `${name}-panel-active`;
+        // Toggle selected panel visibility
+        const panel = document.querySelector(`.${name}-panel`) || document.querySelector(`.${name}-panel-active`);
+        panel.className = panel.className.includes(`${name}-panel-active`) ? `${name}-panel` : `${name}-panel-active`;
+    }
+
+    function closeMusicPlayer() {
+        const musicPlayer = document.querySelector('.music-player-container.expanded');
     }
 
     return (
         <div className="desktop-content">
-            <div className="icon-grid" onClick={clearHighlight}>
+            <div className="icon-grid" onClick={(e) => {clearHighlight(e); closeMusicPlayer();}}>
                 <div className="icon-item" onClick={doClickHighlight} onDoubleClick={() => togglePanel('welcome')}>
                     <img src="/images/icons/Windows_Notepad_icon.png" alt="Home Icon" className="icon-image"/>
                     <span className="icon-label">Welcome!</span>
@@ -65,6 +83,7 @@ export default function DesktopContent(){
             <div name="wallpaper" className="wallpaper-panel" onClick={() => togglePanel('wallpaper')}>
                 <WallpaperPanel/>
             </div>
+            
         </div>
     )
 }
