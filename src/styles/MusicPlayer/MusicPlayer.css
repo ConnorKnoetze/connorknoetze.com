@@ -21,6 +21,7 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     font-family: "Segoe UI Variable", "Segoe UI", Tahoma, "Geneva", Verdana, sans-serif;
     transition: width 0.3s ease, height 0.3s ease, padding 0.35s ease, border-radius 0.35s ease, box-shadow 0.35s ease;
+    user-select: none;
 }
 
 .music-player-container.minimized {
@@ -33,6 +34,12 @@
     align-items: center;
     cursor: pointer;
     gap: 0;
+    transition: transform 0.25s ease, width 0.3s ease, height 0.3s ease, padding 0.35s ease, border-radius 0.35s ease, box-shadow 0.35s ease;
+}
+
+.music-player-container.minimized:hover {
+    transform: scale(115%);
+    box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);
 }
 
 .music-player-container.expanded {
@@ -113,6 +120,9 @@
 
 .music-player-controls button {
     flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 8px 12px;
     background: #ffffff0f;
     color: #ededed;
@@ -135,6 +145,13 @@
     transform: translateY(0);
 }
 
+.music-player-controls img{
+    width: 16px;
+    height: 16px;
+    pointer-events: none;
+    filter: invert(1) brightness(2);
+}
+
 .music-player-volume {
     width: 100%;
 }
@@ -149,6 +166,24 @@
     cursor: pointer;
 }
 
+.music-player-volume input[type="range"]::-webkit-slider-runnable-track {
+    height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(to right, #00d2ff 0%, #3a47d5 var(--track-fill, 10%), rgba(255, 255, 255, 0.1) var(--track-fill, 10%), rgba(255, 255, 255, 0.1) 100%);
+}
+
+.music-player-volume input[type="range"]::-moz-range-track {
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.music-player-volume input[type="range"]::-moz-range-progress {
+    height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);
+}
+
 .music-player-volume input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -158,6 +193,7 @@
     background: #ededed;
     cursor: pointer;
     transition: all 0.2s ease;
+    margin-top: -4px;
 }
 
 .music-player-volume input[type="range"]::-webkit-slider-thumb:hover {
@@ -173,6 +209,7 @@
     border: none;
     cursor: pointer;
     transition: all 0.2s ease;
+    margin-top: 0;
 }
 
 .music-player-volume input[type="range"]::-moz-range-thumb:hover {
@@ -193,4 +230,5 @@
     border-radius: 8%;
     object-fit: cover;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    -webkit-user-drag: none;
 }

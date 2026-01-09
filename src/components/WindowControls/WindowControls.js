@@ -14,7 +14,7 @@ export default function WindowControls({ panelName }){
 
     return (
         <div className="window-controls">
-            <div className="window-control-button">
+            <div className="window-control-button" onClick={() => closeWindow(panelName)}>
                 <img className="window-control-icon" src="/images/WindowControls/remove.png" alt="Minimize Icon"/>
             </div>
             <div className="window-control-button" onClick={() => maximizeWindow(panelName)}>

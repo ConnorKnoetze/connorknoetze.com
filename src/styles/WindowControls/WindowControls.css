@@ -7,6 +7,7 @@
     align-items: center;
     justify-content: flex-end;
     padding: 0;
+    user-select: none;
 }
 
 .window-control-button {

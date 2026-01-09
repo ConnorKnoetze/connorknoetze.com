@@ -15,6 +15,15 @@ const jsonLd = {
 };
 
 export default function WelcomePanel(){
+    const openPanel = (panelName) => {
+        // Close welcome panel and open selected panel
+        const welcomePanel = document.querySelector('.welcome-panel') || document.querySelector('.welcome-panel-active');
+        welcomePanel.className = welcomePanel.className.includes('welcome-panel-active') ? 'welcome-panel' : 'welcome-panel-active';
+
+        const Panel = document.querySelector(`.${panelName}-panel`) || document.querySelector(`.${panelName}-panel-active`);
+        Panel.className = Panel.className.includes(`${panelName}-panel-active`) ? `${panelName}-panel` : `${panelName}-panel-active`;
+    }
+
     return (
         <article
             className="welcome-panel-content"
@@ -29,16 +38,15 @@ export default function WelcomePanel(){
                 <section className="welcome-hero" aria-label="Intro">
                     <header className="welcome-copy">
                         <p className="welcome-eyebrow">Welcome desk</p>
-                        <h1 id="welcome-title" className="welcome-title">Hey, I am Connor — this desktop is your quick tour of my work.</h1>
-                        <p className="welcome-lede">This panel is the map, not the resume. Pop open the other windows to see projects, wallpapers, and more detail in About Me.</p>
-
+                        <h1 id="welcome-title" className="welcome-title">Connor Knoetze — Portfolio</h1>
+                        <h2 className="welcome-lede">Hey, I am Connor this pseudo desktop is a showcase of my personal projects. </h2>
                         <div className="welcome-cta-row" aria-label="Primary actions">
-                            <Link className="welcome-cta primary" href="/project" aria-label="Browse projects">
+                            <button className="welcome-cta primary" onClick={() => openPanel('project')} aria-label="View projects">
                                 Browse Projects
-                            </Link>
-                            <a className="welcome-cta ghost" href="#wallpapers" aria-label="View wallpapers">
+                            </button>
+                            <button className="welcome-cta secondary" onClick={() => openPanel('wallpaper')} aria-label="View wallpapers">
                                 View Wallpapers
-                            </a>
+                            </button>
                         </div>
                     </header>
 
@@ -54,6 +62,15 @@ export default function WelcomePanel(){
 
                 <section className="welcome-grid" aria-label="Details">
                     <div className="welcome-card">
+                        <div className="welcome-card-label">How to use</div>
+                        <h3>Quick tour</h3>
+                        <ul className="welcome-list">
+                            <li><span className="dot success" />Use the window controls to minimize, maximize, or close panels.</li>
+                            <li><span className="dot info" />Open the Projects window to browse repos; double-click a folder to view details.</li>
+                            <li><span className="dot neutral" />Swap wallpapers in the Wallpaper panel; the UI adapts to keep text readable.</li>
+                        </ul>
+                    </div>
+                    <div className="welcome-card">
                         <div className="welcome-card-label">Styling</div>
                         <h3>Windows 11-inspired, tactile</h3>
                         <p>Glassmorphic panels, soft shadows, and a centered desktop layout keep everything legible over the dynamic wallpapers.</p>
@@ -63,25 +80,17 @@ export default function WelcomePanel(){
                             <li><span className="dot neutral" />Accent blue for controls and call-to-actions.</li>
                         </ul>
                     </div>
-
-                    <div className="welcome-card">
-                        <div className="welcome-card-label">How to use</div>
-                        <h3>Quick tour</h3>
-                        <ul className="welcome-list">
-                            <li><span className="dot success" />Use the window controls to minimize, maximize, or close panels.</li>
-                            <li><span className="dot info" />Open the Projects window to browse repos; double-click a folder to view details.</li>
-                            <li><span className="dot neutral" />Swap wallpapers in the Wallpaper panel; the UI adapts to keep text readable.</li>
-                        </ul>
-                    </div>
                 </section>
             </section>
-
-            {/* JSON-LD for SEO */}
+            
             <script
                 type="application/ld+json"
                 // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
+            <footer className="border-t border-gray-600 py-4 text-center text-sm text-gray-600">
+            © {new Date().getFullYear()} Connor Knoetze
+            </footer>
         </article>
     );
 }

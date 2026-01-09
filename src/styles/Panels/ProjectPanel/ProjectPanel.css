@@ -2,14 +2,22 @@
 
 @import "../Panel/Panel.css";
 
-.project-panel-content{
-    background-color: rgb(31, 31, 31);
+.project-panel-content {
+    overflow: hidden;
 }
 
 .project-panel-header{
+    background: rgb(31, 31, 31);
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+}
+
+.project-panel-body{
+    background:
+		radial-gradient(circle at 20% 15%, rgba(96, 165, 255, 0.1), transparent 32%),
+		radial-gradient(circle at 85% 12%, rgba(10, 132, 255, 0.08), transparent 28%),
+		linear-gradient(140deg, rgba(18, 20, 24, 0.95), rgba(16, 18, 22, 0.9));
 }
 
 .header-tag-area {
@@ -73,7 +81,7 @@
 .project-panel-controls {
     display:flex;
     flex-direction: row;
-    background-color: rgba(255, 255, 255, 0.1);
+    background: rgb(31, 31, 31);
     width: 100%;
     box-sizing: border-box;
     align-items: stretch;
@@ -139,7 +147,7 @@
 }
 
 .search-area:focus-within {
-    border-color: #e63946;
+    border-color: #0075ac;
 }
 
 .search-area input {
