@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+  metadataBase: new URL('https://connorknoetze.com'),
   title: {
     default: "Connor Knoetze — Portfolio",
     template: "%s | Connor Knoetze",
@@ -49,6 +50,7 @@ export const metadata = {
     title: "Connor Knoetze — Portfolio",
     description:
       "Explore projects, wallpapers, and more in an interactive desktop environment.",
+    url: "https://connorknoetze.com",
     type: "website",
     locale: "en_US",
     siteName: "Connor Knoetze Portfolio",
@@ -63,7 +65,10 @@ export const metadata = {
     icon: "/favicon.ico",
   },
   alternates: {
-    canonical: "/",
+    canonical: "https://connorknoetze.com",
+  },
+  verification: {
+    google: 'your-google-verification-code',
   },
 };
 
