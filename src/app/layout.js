@@ -21,7 +21,7 @@ export const metadata = {
     template: "%s | Connor Knoetze",
   },
   description:
-    "Interactive desktop portfolio showcasing projects, wallpapers, and an About Me section.",
+    "Explore projects, wallpapers, and more in an interactive desktop environment.",
   keywords: [
     "Connor Knoetze",
     "portfolio",
