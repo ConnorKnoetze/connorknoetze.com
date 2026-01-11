@@ -24,6 +24,7 @@ export default function MusicPlayer() {
     const [isPlaying, setIsPlaying] = useState(true);
     const [isMuted, setIsMuted] = useState(false);
     const [isMinimized, setIsMinimized] = useState(false);
+    const [isHidden, setIsHidden] = useState(true);
 
     useEffect(() => {
         const howl = createHowl(0);
@@ -38,8 +39,10 @@ export default function MusicPlayer() {
     }, []);
 
     useEffect(() => {
-        const timer = setTimeout(() => setIsMinimized(true), 7500);
-        return () => clearTimeout(timer);
+        if (!isHidden){
+            const timer = setTimeout(() => setIsMinimized(true), 7500);
+            return () => clearTimeout(timer);
+        }
     }, []);
 
     useEffect(() => {
@@ -53,6 +56,7 @@ export default function MusicPlayer() {
     useEffect(() => {
         function handleClickOutside(e) {
             if (playerRef.current && !playerRef.current.contains(e.target)) {
+                if(document.querySelector('.music-player-container.minimized.hidden') || document.querySelector('.music-player-container.expanded.hidden')) return;
                 setIsMinimized(true);
             }
         }

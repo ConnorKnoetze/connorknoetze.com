@@ -5,6 +5,8 @@ import "@/styles/Panels/Panel/Panel.css";
 import "@/styles/Panels/AboutMePanel/AboutMePanel.css";
 import Footer from "@/components/Footer/Footer";
 
+import { togglePanels } from "@/utils/togglePanels";
+
 export default function AboutMePanel(){
     const favoriteProjects = [
         {
@@ -51,15 +53,6 @@ export default function AboutMePanel(){
         },
     ];
 
-    function openProjects(event) {
-        event?.stopPropagation();
-
-        const aboutPanel = document.querySelector('.about-me-panel-active') || document.querySelector('.about-me-panel');
-        const projectPanel = document.querySelector('.project-panel') || document.querySelector('.project-panel-active');
-
-        if (aboutPanel) aboutPanel.className = 'about-me-panel';
-        if (projectPanel) projectPanel.className = 'project-panel-active';
-    }
     return (
         <div className="about-me-panel-content" onClick={(e) => e.stopPropagation()}>
             <div className="about-me-panel-header">
@@ -129,7 +122,7 @@ export default function AboutMePanel(){
                             ))}
                         </ul>
                         <div className="about-project-actions">
-                            <button type="button" className="about-cta ghost" onClick={openProjects}>
+                            <button type="button" className="about-cta ghost" onClick={() => togglePanels('project')}>
                                 View all projects →
                             </button>
                         </div>

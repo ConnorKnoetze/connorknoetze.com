@@ -81,7 +81,7 @@
 .project-panel-controls {
     display:flex;
     flex-direction: row;
-    background: rgb(31, 31, 31);
+    background: rgb(55, 55, 55);
     width: 100%;
     box-sizing: border-box;
     align-items: stretch;
@@ -232,5 +232,26 @@
     .file-path-arrow-image-area:hover {
         background-color: rgba(255, 255, 255, 0.05);
         transition: background-color 70ms ease-in-out;
+    }
+}
+
+@media (max-width: 600px) {
+    .header-tag {
+        width: 15rem;
+    }
+
+    .project-panel-controls{
+        align-items: center;
+    }
+
+    .arrow-image-area {
+        width: 28px;
+        height: 28px;
+        margin: 0px;
+        padding: 2px;
+    }
+
+    .search-area {
+        width: 8rem;
     }
 }

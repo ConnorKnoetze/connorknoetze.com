@@ -46,6 +46,15 @@
     transition: none;
 }
 
+.music-player-container.expanded.hidden {
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: none;
+    transition: none;
+}
+
 .music-player-container.minimized:hover {
     transform: scale(115%);
     box-shadow: 0 6px 16px rgba(255, 255, 255, 0.2);

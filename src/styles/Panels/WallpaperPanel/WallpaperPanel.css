@@ -76,3 +76,9 @@
         transition: opacity 150ms ease-out;
     }
 }
+
+@media (max-width: 600px) {
+    .wallpaper-panel-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
