@@ -59,7 +59,7 @@ export default function PerProjectPanel({ name }) {
     if (loading || !repo) {
         return (
             <article
-                className="per-project-panel-content"
+                className="per-project-panel-content mb-3"
                 onClick={(e) => e.stopPropagation()}
                 role="region"
                 aria-labelledby="per-project-title"

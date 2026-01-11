@@ -141,3 +141,18 @@ nav {
         border-radius: 5px;
     }
 }
+
+@media (max-width: 600px) {
+    .nav-items {
+        left: 0;
+        margin: 0;
+        position: relative;
+        transform: translateX(0);
+        gap: 0;
+    }
+
+    .icon-wrapper {
+        position: static;
+        display: flex;
+    }
+}

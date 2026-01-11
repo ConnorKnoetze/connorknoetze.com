@@ -3,8 +3,9 @@
 import "@/styles/Panels/Panel/Panel.css";
 import "@/styles/Panels/WelcomePanel/WelcomePanel.css";
 import WindowControls from "../../WindowControls/WindowControls";
-import Link from "next/link";
 import Footer from "@/components/Footer/Footer";
+import { useState, useEffect } from "react";
+import { togglePanels, closeAllPanels } from "@/utils/togglePanels";
 
 // Basic JSON-LD to describe this welcome page context for search engines
 const jsonLd = {
@@ -15,7 +16,19 @@ const jsonLd = {
         "Quick tour of Connor's work with projects, wallpapers, and an about panel.",
 };
 
-export default function WelcomePanel(){
+export default function WelcomePanel() {
+
+    const [innerWidth, setInnerWidth] = useState(
+        typeof window !== 'undefined' ? window.innerWidth : 1024
+    );
+
+    useEffect(() => {
+        function onResize() { setInnerWidth(window.innerWidth); }
+        onResize();
+        window.addEventListener('resize', onResize);
+        return () => window.removeEventListener('resize', onResize);
+    }, []);
+
     const openPanel = (panelName) => {
         // Close welcome panel and open selected panel
         const welcomePanel = document.querySelector('.welcome-panel') || document.querySelector('.welcome-panel-active');
@@ -33,7 +46,7 @@ export default function WelcomePanel(){
             aria-labelledby="welcome-title"
         >
             <div className="welcome-panel-header">
-                <WindowControls panelName="welcome"/>
+                <WindowControls panelName="welcome" maximized={innerWidth < 600 ? true : false} />
             </div>
             <section className="welcome-panel-body" aria-label="Welcome overview">
                 <section className="welcome-hero" aria-label="Intro">
@@ -42,11 +55,14 @@ export default function WelcomePanel(){
                         <h1 id="welcome-title" className="welcome-title">Connor Knoetze — Portfolio</h1>
                         <h2 className="welcome-lede">Hey, I am Connor this pseudo desktop is a showcase of my personal projects. </h2>
                         <div className="welcome-cta-row" aria-label="Primary actions">
-                            <button className="welcome-cta primary" onClick={() => openPanel('project')} aria-label="View projects">
+                            <button className="welcome-cta primary" onClick={() => togglePanels('project')} aria-label="View projects">
                                 Browse Projects
                             </button>
-                            <button className="welcome-cta secondary" onClick={() => openPanel('wallpaper')} aria-label="View wallpapers">
+                            <button className="welcome-cta secondary" onClick={() => togglePanels('wallpaper')} aria-label="View wallpapers">
                                 View Wallpapers
+                            </button>
+                            <button className="welcome-cta secondary" onClick={() => togglePanels('about-me')} aria-label="View about me">
+                                About Me
                             </button>
                         </div>
                     </header>
@@ -85,7 +101,7 @@ export default function WelcomePanel(){
             </section>
 
             <div className="welcome-panel-footer">
-                <Footer />
+                <Footer/>
             </div>
 
             <script

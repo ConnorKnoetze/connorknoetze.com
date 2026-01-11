@@ -83,6 +83,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased app-shell`}
       >
         <MusicPlayer />
+        
         <main className="main-content">{children}</main>
         <NavContent/>
       </body>

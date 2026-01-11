@@ -1,18 +1,50 @@
 'use client';
+
+import { useEffect } from "react";
+
 import "@/styles/WindowControls/WindowControls.css";
 
-export default function WindowControls({ panelName }){
+export default function WindowControls({ panelName, maximized }) {
+    const isMaximized = maximized === true || (typeof maximized === 'object' && maximized.maximized === true);
+
+    console.log('WindowControls rendered with panelName:', panelName, 'maximized prop:', maximized, 'isMaximized:', isMaximized);
+
+    function getPanelContentIsMaximized() {
+        if (typeof document === 'undefined') return false;
+        const panelContent =
+            document.querySelector(`.${panelName}-panel-content`) ||
+            document.querySelector(`.${panelName}-panel-content.maximized`);
+
+        if (!panelContent) return false;
+        return panelContent.classList.contains('maximized');
+    }
+
     function closeWindow(panelName) {
+        if (typeof document === 'undefined') return;
         const Panel = document.querySelector(`.${panelName}-panel-active`);
-        Panel.className = `${panelName}-panel`;
+        if (Panel) Panel.className = `${panelName}-panel`;
+
+        const musicPlayer = document.querySelector('.music-player-container.minimized') || document.querySelector('.music-player-container.expanded');
+        musicPlayer.classList.remove('hidden');
     }
 
     function maximizeWindow(panelName) {
-        const PanelContent = document.querySelector(`.${panelName}-panel-content`);
-        const musicPlayer = document.querySelector('.music-player-container.minimized');
+        if (typeof document === 'undefined') return;
+        const PanelContent =
+            document.querySelector(`.${panelName}-panel-content`) ||
+            document.querySelector(`.${panelName}-panel-content.maximized`);
+        if (PanelContent) PanelContent.classList.toggle('maximized');
+
+        const musicPlayer = document.querySelector('.music-player-container.minimized') || document.querySelector('.music-player-container.expanded');
         musicPlayer.classList.toggle('hidden');
-        PanelContent.classList.toggle('maximized');
     }
+
+    useEffect(() => {
+        console.log('WindowControls useEffect triggered, panelName:', panelName, 'isMaximized:', isMaximized);
+        if (isMaximized || getPanelContentIsMaximized()) {
+            maximizeWindow(panelName);
+        }
+    }, [panelName, isMaximized]);
 
     return (
         <div className="window-controls">
