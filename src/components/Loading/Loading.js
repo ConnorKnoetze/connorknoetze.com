@@ -5,9 +5,9 @@ import { useBackgroundLoading } from '@/context/BackgroundLoadingContext';
 export default function Loading() {
   const { isBackgroundLoaded } = useBackgroundLoading();
 
-  // if (isBackgroundLoaded) {
-  //   return null;
-  // }
+  if (isBackgroundLoaded) {
+    return null;
+  }
 
   return (
     <div className="loading-container">
