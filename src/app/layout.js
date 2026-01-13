@@ -1,8 +1,11 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "@/styles/globals.css";
 import "@/styles/Nav/Nav.css";
+import "@/styles/Loading/Loading.css";
 import NavContent from "@/components/NavContent/NavContent";
 import MusicPlayer from "@/components/MusicPlayer/MusicPlayer";
+import Loading from "@/components/Loading/Loading";
+import { Suspense } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -83,8 +86,11 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased app-shell`}
       >
         <MusicPlayer />
-        
-        <main className="main-content">{children}</main>
+        <main className="main-content">
+          <Suspense fallback={<Loading />}>
+            {children}
+          </Suspense>
+        </main>
         <NavContent/>
       </body>
     </html>
