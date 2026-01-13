@@ -7,8 +7,6 @@ import "@/styles/WindowControls/WindowControls.css";
 export default function WindowControls({ panelName, maximized }) {
     const isMaximized = maximized === true || (typeof maximized === 'object' && maximized.maximized === true);
 
-    console.log('WindowControls rendered with panelName:', panelName, 'maximized prop:', maximized, 'isMaximized:', isMaximized);
-
     function getPanelContentIsMaximized() {
         if (typeof document === 'undefined') return false;
         const panelContent =
@@ -40,7 +38,6 @@ export default function WindowControls({ panelName, maximized }) {
     }
 
     useEffect(() => {
-        console.log('WindowControls useEffect triggered, panelName:', panelName, 'isMaximized:', isMaximized);
         if (isMaximized || getPanelContentIsMaximized()) {
             maximizeWindow(panelName);
         }
