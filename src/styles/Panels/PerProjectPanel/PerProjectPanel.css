@@ -137,7 +137,7 @@
 .image-card {
     grid-column: 1;
     grid-row: 1;
-    min-height: 280px;
+    height: 100%;
     user-select: none;
 }
 
@@ -229,7 +229,7 @@
 
     .image-card {
         grid-column: 1;
-        min-height: 240px;
+        height: 100%;
     }
 
     .topics-card {
@@ -272,7 +272,7 @@
     }
 
     .image-card {
-        min-height: 200px;
+        height: 100%;
     }
 }
 
