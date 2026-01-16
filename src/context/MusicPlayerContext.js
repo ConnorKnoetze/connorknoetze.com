@@ -1,14 +1,19 @@
 'use client';
 
-import { createContext, useContext, useRef } from 'react';
+import { createContext, useContext, useRef, useState } from 'react';
 
 const MusicPlayerContext = createContext(null);
 
 export function MusicPlayerProvider({ children }) {
   const musicPlayerRef = useRef(null);
+  const howlRef = useRef(null);
+  const [currentTrackSrc, setCurrentTrackSrc] = useState(null);
+  const openIdleOverlayRef = useRef(null);
 
   return (
-    <MusicPlayerContext.Provider value={{ musicPlayerRef }}>
+    <MusicPlayerContext.Provider
+      value={{ musicPlayerRef, howlRef, currentTrackSrc, setCurrentTrackSrc, openIdleOverlayRef }}
+    >
       {children}
     </MusicPlayerContext.Provider>
   );

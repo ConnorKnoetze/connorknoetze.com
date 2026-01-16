@@ -5,7 +5,9 @@ import "@/styles/Loading/Loading.css";
 import NavContent from "@/components/NavContent/NavContent";
 import MusicPlayer from "@/components/MusicPlayer/MusicPlayer";
 import Loading from "@/components/Loading/Loading";
+import IdleOverlay from "@/components/IdleOverlay/IdleOverlay";
 import { BackgroundLoadingProvider } from "@/context/BackgroundLoadingContext";
+import { MusicPlayerProvider } from "@/context/MusicPlayerContext";
 import { Suspense } from "react";
 
 const geistSans = Geist({
@@ -86,16 +88,20 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased app-shell`}
       >
-        <BackgroundLoadingProvider>
-          <Loading />
-          <MusicPlayer />
-          <main className="main-content">
-            <Suspense fallback={null}>
-              {children}
-            </Suspense>
-          </main>
-          <NavContent/>
-        </BackgroundLoadingProvider>
+        <MusicPlayerProvider>
+          <BackgroundLoadingProvider>
+            <IdleOverlay>
+              <Loading />
+              <MusicPlayer />
+              <main className="main-content">
+                <Suspense fallback={null}>
+                  {children}
+                </Suspense>
+              </main>
+              <NavContent/>
+            </IdleOverlay>
+          </BackgroundLoadingProvider>
+        </MusicPlayerProvider>
       </body>
     </html>
   );
