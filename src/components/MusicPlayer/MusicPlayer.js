@@ -3,6 +3,8 @@
 import { Howl } from "howler";
 import { useEffect, useRef, useState } from "react";
 
+import { useMusicPlayer } from "@/context/MusicPlayerContext";
+
 import "@/styles/MusicPlayer/MusicPlayer.css";
 
 const TRACKS = [
@@ -25,18 +27,16 @@ export default function MusicPlayer() {
     const [isMuted, setIsMuted] = useState(false);
     const [isMinimized, setIsMinimized] = useState(false);
     const [isHidden, setIsHidden] = useState(true);
+    const { howlRef, setCurrentTrackSrc, openIdleOverlayRef } = useMusicPlayer();
 
     useEffect(() => {
-        const howl = createHowl(0);
-        soundRef.current = howl;
-        if (isMuted) {
-            howl.mute(true);
-        }
-        howl.play();
+        const howl = loadTrack(currentIndex, { mute: isMuted });
         return () => {
-            howl.unload();
+            if (howl) {
+                howl.unload();
+            }
         };
-    }, []);
+    }, [currentIndex, isMuted]);
 
     useEffect(() => {
         if (!isHidden){
@@ -77,18 +77,21 @@ export default function MusicPlayer() {
         nextTrack();
     }
 
-    function loadTrack(index) {
+    function loadTrack(index, { mute = false } = {}) {
         if (soundRef.current) {
             soundRef.current.stop();
             soundRef.current.unload();
         }
         const howl = createHowl(index);
         soundRef.current = howl;
-        if (isMuted) {
+        howlRef.current = howl;
+        setCurrentTrackSrc(TRACKS[index]);
+        if (mute) {
             howl.mute(true);
         }
         howl.play();
         setIsPlaying(true);
+        return howl;
     }
 
     function toggleSound() {
@@ -106,7 +109,6 @@ export default function MusicPlayer() {
     function nextTrack() {
         setCurrentIndex((prev) => {
             const next = (prev + 1) % TRACKS.length;
-            loadTrack(next);
             return next;
         });
     }
@@ -114,11 +116,14 @@ export default function MusicPlayer() {
     function previousTrack() {
         setCurrentIndex((prev) => {
             const prevIndex = (prev - 1 + TRACKS.length) % TRACKS.length;
-            loadTrack(prevIndex);
             return prevIndex;
         });
     }
-
+    function openIdleScreen() {
+        if (openIdleOverlayRef.current) {
+            openIdleOverlayRef.current();
+        }
+    }
     function toggleMute() {
         if (!soundRef.current) return;
         const newMuted = !isMuted;
@@ -165,6 +170,9 @@ export default function MusicPlayer() {
                         <button onClick={toggleSound}>{isPlaying ? <img src="/images/music/pause.png"></img> : <img src="/images/music/play.png"></img>}</button>
                         <button onClick={nextTrack}><img src="/images/music/next-track.png"></img></button>
                         <button className="mute-button" onClick={toggleMute}>{isMuted ? <img src="/images/music/muted.png"></img> : <img src="/images/music/volume.png"></img>}</button>
+                    </div>
+                    <div className="music-player-controls">
+                        <button onClick={openIdleScreen} title="Open Visualizer"><img src="/images/music/visual.svg" alt="Visualizer"></img></button>
                     </div>
                     <div className="music-player-volume">
                         <input
