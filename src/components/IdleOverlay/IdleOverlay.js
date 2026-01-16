@@ -87,7 +87,19 @@ export default function IdleOverlay({ children }) {
     gradientX.addColorStop(1, "#0099ff");
 
     // Soft glow: disable on iOS to prevent throttling
-    const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    const isIOS = (() => {
+      // Check standard iOS devices
+      if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) return true;
+      
+      // Check for iPad masquerading as Mac (iPadOS 13+)
+      // Use modern API if available, fallback to deprecated platform
+      if (navigator.userAgentData) {
+        return navigator.userAgentData.platform === 'macOS' && navigator.maxTouchPoints > 1;
+      }
+      // @ts-ignore - using deprecated API as fallback
+      return navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
+    })();
+    
     if (!isIOS) {
       canvasCtx.shadowColor = "rgba(0, 204, 255, 0.35)";
       canvasCtx.shadowBlur = 8;
