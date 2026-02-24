@@ -155,6 +155,16 @@ export default function NavContent(){
                     >
                         <img src="/images/icons/photos.png"/>
                     </button>
+                    <button
+                        className="nav-item"
+                        type='button'                        
+                        onClick={() => {
+                            window.open('https://pantry.connorknoetze.com', '_blank');
+                        }}
+                        aria-label='pantry'
+                    >
+                        <img src="/images/icons/pantry.svg"/>
+                    </button>
                 </div>
 
                 <span className="widgets-area">

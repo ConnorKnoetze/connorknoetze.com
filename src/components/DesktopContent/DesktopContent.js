@@ -109,6 +109,10 @@ export default function DesktopContent(){
                     <img src="/images/icons/photos.png" alt="Home Icon" className="icon-image"/>
                     <span className="icon-label">Wallpapers</span>
                 </div>
+                <div className="icon-item" onClick={doClickHighlight} onDoubleClick={() => window.open('https://pantry.connorknoetze.com', '_blank')}>
+                    <img src="/images/icons/pantry.svg" alt="Home Icon" className="icon-image"/>
+                    <span className="icon-label">PantryPal</span>
+                </div>
             </div>
 
             <div className="welcome-panel-active" name="welcome" onClick={() => togglePanels('welcome')}>

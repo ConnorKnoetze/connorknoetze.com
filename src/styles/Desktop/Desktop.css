@@ -46,10 +46,13 @@
 
 .icon-label {
     margin-top: 8px;
-    font-size: 12px;
+    font-size: 13px;
     color: white;
     text-align: center;
-    text-shadow: black 2px 2px 4px;
+    text-shadow: -0.4px -0.4px 0 #000, 
+                0.8px -0.8px 0 #000,
+                -0.8px 0.8px 0 #000, 
+                2px 2px 4px #000;
 }
 
 .wallpaper-panel,

@@ -1,0 +1,72 @@
+<svg width="256" height="256" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PantryPal shelves icon">
+ <defs>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"/>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+   <stop offset="0" stop-color="#22c55e"/>
+   <stop offset="1" stop-color="#16a34a"/>
+  </linearGradient>
+  <linearGradient id="wood" x1="0" y1="0" x2="0" y2="1">
+   <stop offset="0" stop-color="#c08457"/>
+   <stop offset="1" stop-color="#9a5b34"/>
+  </linearGradient>
+  <linearGradient id="svg_38" x1="0" y1="0" x2="1" y2="0">
+   <stop stop-color="#39c900" stop-opacity="0.99609" offset="0"/>
+   <stop stop-color="#1b9300" stop-opacity="0.99609" offset="1"/>
+  </linearGradient>
+ </defs>
+ <!--Background tile-->
+ <!--Pantry cabinet-->
+ <g>
+  <title>Layer 1</title>
+  <rect x="19.25472" y="26.19626" width="211.73584" height="212.07082" rx="18" fill="none" opacity="0.1" stroke-width="4" id="svg_36" stroke="#0f172a"/>
+  <rect x="20" y="20" width="216" height="216" rx="56" fill="url(#bg)" filter="url(#shadow)" id="svg_1"/>
+  <!--Cabinet frame-->
+  <rect fill="url(#svg_38)" x="5.34374" y="3.87499" width="243.74999" height="247.49999" id="svg_39" rx="23" stroke="null"/>
+  <rect x="21.75472" y="20.5064" width="211.73584" height="212.07082" rx="18" fill="#f8fafc" id="svg_4" stroke="null"/>
+  <!--Shelves-->
+  <g id="svg_5" stroke="null">
+   <rect x="26.39741" y="81.00265" width="198.07546" height="18.1775" rx="6" fill="url(#wood)" id="svg_6" stroke="null"/>
+   <rect x="26.39741" y="147.65348" width="198.07546" height="18.1775" rx="6" fill="url(#wood)" id="svg_7" stroke="null"/>
+   <rect x="26.39741" y="214.30431" width="198.07546" height="18.1775" rx="6" fill="url(#wood)" id="svg_8" stroke="null"/>
+  </g>
+  <!--Items on top shelf-->
+  <g id="svg_9" stroke="null">
+   <!--Box-->
+   <rect x="40.08019" y="41.37474" width="58.0566" height="45.44375" rx="6" fill="#60a5fa" id="svg_10" stroke="null"/>
+   <rect x="46.91038" y="48.94869" width="44.39622" height="9.08875" rx="3" fill="#bfdbfe" opacity="0.9" id="svg_11" stroke="null"/>
+   <!--Jar-->
+   <rect x="111.79717" y="38.34515" width="44.39622" height="51.50291" rx="10" fill="#34d399" id="svg_12" stroke="null"/>
+   <rect x="118.62736" y="32.28599" width="30.73585" height="12.11833" rx="4" fill="#065f46" id="svg_13" stroke="null"/>
+   <rect x="118.62736" y="59.55223" width="30.73585" height="15.14792" rx="5" fill="#bbf7d0" id="svg_14" stroke="null"/>
+   <!--Can-->
+   <rect x="169.85377" y="41.37474" width="40.98113" height="48.47333" rx="8" fill="#f59e0b" id="svg_15" stroke="null"/>
+   <rect x="173.26887" y="50.46348" width="34.15094" height="10.60354" rx="3.5" fill="#fde68a" id="svg_16" stroke="null"/>
+  </g>
+  <!--Items on middle shelf-->
+  <!--Tall bottle-->
+  <rect x="45.99529" y="110.78313" width="29.15094" height="43.96243" rx="10" fill="#a78bfa" id="svg_18" stroke="null"/>
+  <rect x="51.88797" y="102.5914" width="17.67807" height="12.64792" rx="4" fill="#6d28d9" id="svg_19" stroke="null"/>
+  <rect x="48.93043" y="131.22931" width="23.90566" height="15.14792" rx="5" fill="#ddd6fe" id="svg_20" stroke="null"/>
+  <!--Pasta box-->
+  <rect x="95.3691" y="103.77223" width="61.4717" height="48.47333" rx="6" fill="#fb7185" id="svg_21" stroke="null"/>
+  <rect x="100.63679" y="109.78369" width="47.81132" height="9.08875" rx="3" fill="#fecdd3" opacity="0.95" id="svg_22" stroke="null"/>
+  <rect x="101.26179" y="125.60431" width="27.32075" height="21.20708" rx="4" fill="#fff1f2" opacity="0.9" id="svg_23" stroke="null"/>
+  <!--Can-->
+  <rect x="165.18868" y="105.33473" width="40.98113" height="48.47333" rx="8" fill="#22c55e" id="svg_24" stroke="null"/>
+  <rect x="168.60377" y="114.42348" width="34.15094" height="12.11833" rx="4" fill="#bbf7d0" id="svg_25" stroke="null"/>
+  <!--Items on bottom shelf-->
+  <!--Bag-->
+  <path d="m46.55903,175.3925c-5.15256,0 -7.72883,4.78076 -7.72883,9.56151l0,26.29416c0,9.56151 7.72883,16.73265 18.03395,16.73265l12.88139,0c10.30511,0 18.03395,-7.17114 18.03395,-16.73265l0,-26.29416c0,-4.78076 -2.57628,-9.56151 -7.72883,-9.56151l-33.49162,0l-0.00001,0z" fill="#f97316" id="svg_27" stroke="null"/>
+  <path d="m49.07547,175.3925c6.83019,-9.08875 20.49057,-9.08875 27.32075,0" fill="none" stroke-width="4" stroke-linecap="round" id="svg_28" stroke="#9a3412"/>
+  <rect x="49.07547" y="205.68833" width="27.32075" height="15.14792" rx="5" fill="#fed7aa" id="svg_29" stroke="null"/>
+  <!--Small jar-->
+  <rect x="108.93986" y="180.92209" width="44.39622" height="45.44375" rx="10" fill="#38bdf8" id="svg_30" stroke="null"/>
+  <rect x="115.77005" y="174.86292" width="30.73585" height="12.11833" rx="4" fill="#075985" id="svg_31" stroke="null"/>
+  <rect x="115.77005" y="202.12917" width="30.73585" height="15.14792" rx="5" fill="#bae6fd" id="svg_32" stroke="null"/>
+  <!--Carton-->
+  <path d="m184.16981,181.45167l24.30189,0c6.07547,0 12.15094,4.05753 12.15094,8.11505l0,28.40268c0,6.08629 -6.07547,10.14381 -15.18868,10.14381l-18.22641,0c-9.11321,0 -15.18868,-4.05753 -15.18868,-10.14381l0,-28.40268c0,-4.05753 6.07547,-8.11505 12.15094,-8.11505z" fill="#94a3b8" id="svg_33" stroke="null"/>
+  <path d="m182.86674,183.95167l13.66038,-15.14792l13.66038,15.14792" fill="#64748b" id="svg_34" stroke="null"/>
+  <path fill="#e2e8f0" opacity="undefined" d="m182.26414,215.21791c0,-2.17352 1.57578,-4 3.45097,-4l22.56151,0c1.87518,0 3.45097,1.82648 3.45097,4l0,4.11833c0,2.17352 -1.57578,4 -3.45097,4l-22.56151,0c-1.87518,0 -3.45097,-1.82648 -3.45097,-4l0,-4.11833z" id="svg_35" stroke="null"/>
+  <!--Subtle cabinet outline-->
+ </g>
+</svg>
