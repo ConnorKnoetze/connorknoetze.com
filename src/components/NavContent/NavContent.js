@@ -113,7 +113,7 @@ export default function NavContent(){
                         }}
                         aria-label='google'
                     >
-                        <img src="/images/icons/google.png"/>
+                        <img src={`${process.env.NEXT_PUBLIC_CDN_BASE}icons/google.png`} />
                     </button>
                     <button 
                         className="nav-item"
@@ -123,7 +123,7 @@ export default function NavContent(){
                         }}
                         aria-label='text'
                     >
-                        <img src="/images/icons/Windows_Notepad_icon.png"/>
+                        <img src={`${process.env.NEXT_PUBLIC_CDN_BASE}icons/Windows_Notepad_icon.png`} />
                     </button>
                     <button 
                         className="nav-item"
@@ -133,7 +133,7 @@ export default function NavContent(){
                         }}
                         aria-label='pdf'
                     >
-                        <img src="/images/icons/pdf.png"/>
+                        <img src={`${process.env.NEXT_PUBLIC_CDN_BASE}icons/pdf.png`} />
                     </button>
                     <button 
                         className="nav-item"
@@ -143,7 +143,7 @@ export default function NavContent(){
                         }}
                         aria-label='folder'
                     > 
-                        <img src="/images/folder.png"/>
+                        <img src={`${process.env.NEXT_PUBLIC_CDN_BASE}folder.png`} />
                     </button>
                     <button
                         className="nav-item"
@@ -153,7 +153,7 @@ export default function NavContent(){
                         }}
                         aria-label='photos'
                     >
-                        <img src="/images/icons/photos.png"/>
+                        <img src={`${process.env.NEXT_PUBLIC_CDN_BASE}icons/photos.png`} />
                     </button>
                     <button
                         className="nav-item"
@@ -163,16 +163,16 @@ export default function NavContent(){
                         }}
                         aria-label='pantry'
                     >
-                        <img src="/images/icons/pantry.svg"/>
+                        <img src={`${process.env.NEXT_PUBLIC_CDN_BASE}icons/pantry.svg`} />
                     </button>
                 </div>
 
                 <span className="widgets-area">
                     <div className="widget-item" style={{padding: '15px 8px', userSelect: 'none', cursor: 'pointer', backgroundColor: trayOpen ? 'rgba(255, 255, 255, 0.1)' : 'transparent'}} onClick={handleTrayClick}>
-                        <img style={{width: '11px', transform: isRotated ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s'}} src="/images/tray/tray.png"/>
+                        <img style={{width: '11px', transform: isRotated ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s'}} src={`${process.env.NEXT_PUBLIC_CDN_BASE}tray/tray.png`} />
                     </div>
                     <div className="widget-item">
-                        <img className='invert' src="/images/tray/wifi.png"/>
+                        <img className='invert' src={`${process.env.NEXT_PUBLIC_CDN_BASE}tray/wifi.png`} />
                     </div>
                     <div className="widget-item" style={{flexDirection: 'column', fontSize: '12px', lineHeight: '1', padding: '6px 8px', textAlign: 'center'}}>
                         <div className="time">

@@ -94,23 +94,23 @@ export default function DesktopContent(){
         <div className="desktop-content">
             <div className="icon-grid" onClick={(e) => {clearHighlight(e);}}>
                 <div className="icon-item" onClick={doClickHighlight} onDoubleClick={() => togglePanels('welcome')}>
-                    <img src="/images/icons/Windows_Notepad_icon.png" alt="Home Icon" className="icon-image"/>
+                    <img src={`${process.env.NEXT_PUBLIC_CDN_BASE}icons/Windows_Notepad_icon.png`} alt="Home Icon" className="icon-image"/>
                     <span className="icon-label">Welcome!</span>
                 </div>
                 <div className="icon-item" onClick={doClickHighlight} onDoubleClick={() => togglePanels('about-me')}>
-                    <img src="/images/icons/pdf.png" alt="Home Icon" className="icon-image"/>
+                    <img src={`${process.env.NEXT_PUBLIC_CDN_BASE}icons/pdf.png`} alt="Home Icon" className="icon-image"/>
                     <span className="icon-label">About Me</span>
                 </div>
                 <div className="icon-item" onClick={doClickHighlight} onDoubleClick={() => togglePanels('project')}>
-                    <img src="/images/folder.png" alt="Home Icon" className="icon-image"/>
+                    <img src={`${process.env.NEXT_PUBLIC_CDN_BASE}folder.png`} alt="Home Icon" className="icon-image"/>
                     <span className="icon-label">Projects</span>
                 </div>
                 <div className="icon-item" onClick={doClickHighlight} onDoubleClick={() => togglePanels('wallpaper')}>
-                    <img src="/images/icons/photos.png" alt="Home Icon" className="icon-image"/>
+                    <img src={`${process.env.NEXT_PUBLIC_CDN_BASE}icons/photos.png`} alt="Home Icon" className="icon-image"/>
                     <span className="icon-label">Wallpapers</span>
                 </div>
                 <div className="icon-item" onClick={doClickHighlight} onDoubleClick={() => window.open('https://pantry.connorknoetze.com', '_blank')}>
-                    <img src="/images/icons/pantry.svg" alt="Home Icon" className="icon-image"/>
+                    <img src={`${process.env.NEXT_PUBLIC_CDN_BASE}icons/pantry.svg`} alt="Home Icon" className="icon-image"/>
                     <span className="icon-label">PantryPal</span>
                 </div>
             </div>
