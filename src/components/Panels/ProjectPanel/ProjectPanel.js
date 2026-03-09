@@ -90,14 +90,14 @@ export default function ProjectPanel({ onRepoSelect }){
             </div>
 
             <div className="project-panel-controls">
-                <div className="arrow-image-area invert-50"><img src="/images/arrows/left.png" alt="left arrow" /></div>
-                <div className="arrow-image-area invert-50"><img src="/images/arrows/right.png" alt="right arrow" /></div>
-                <div className="arrow-image-area"><img src="/images/arrows/up.png" alt="up arrow" /></div>
-                <div className="arrow-image-area"><img src="/images/arrows/rotate-right.png" alt="rotate right arrow" /></div>
+                <div className="arrow-image-area invert-50"><img src={`${process.env.NEXT_PUBLIC_CDN_BASE}arrows/left.png`} alt="left arrow" /></div>
+                <div className="arrow-image-area invert-50"><img src={`${process.env.NEXT_PUBLIC_CDN_BASE}arrows/right.png`} alt="right arrow" /></div>
+                <div className="arrow-image-area"><img src={`${process.env.NEXT_PUBLIC_CDN_BASE}arrows/up.png`} alt="up arrow" /></div>
+                <div className="arrow-image-area"><img src={`${process.env.NEXT_PUBLIC_CDN_BASE}arrows/rotate-right.png`} alt="rotate right arrow" /></div>
 
                 <div className="file-path-area">
-                    <img src="/images/WindowControls/home.png"/>
-                    <div className="file-path-arrow-image-area"><img style={{width: "10px"}} src="/images/arrows/right-arrow.png"/></div>
+                    <img src={`${process.env.NEXT_PUBLIC_CDN_BASE}WindowControls/home.png`}/>
+                    <div className="file-path-arrow-image-area"><img style={{width: "10px"}} src={`${process.env.NEXT_PUBLIC_CDN_BASE}arrows/right-arrow.png`}/></div>
                     <p>Projects</p>
                 </div>
 
@@ -109,7 +109,7 @@ export default function ProjectPanel({ onRepoSelect }){
                         onChange={(e) => setSearchQuery(e.target.value)}
                     />
                     <button type="submit" style={{background: 'none', border: 'none', cursor: 'pointer', padding: 0}}>
-                        <img src="/images/WindowControls/loupe.png" alt="search icon"/>
+                        <img src={`${process.env.NEXT_PUBLIC_CDN_BASE}WindowControls/loupe.png`} alt="search icon"/>
                     </button>
                 </form>
             </div>
@@ -122,7 +122,7 @@ export default function ProjectPanel({ onRepoSelect }){
                         {filteredRepos.map(repo => (
                             <div key={repo.id} className="repo-item">
                                 <button onDoubleClick={() => (closeWindow('project'), handleRepoSelect(repo.name))} className="repo-button">
-                                    <img src={'/images/icons/filled_folder.png'} alt={`${repo.name}`} />
+                                    <img src={`${process.env.NEXT_PUBLIC_CDN_BASE}icons/filled_folder.png`} alt={`${repo.name}`} />
                                     <p>{repo.name}</p>
                                 </button>
                             </div>

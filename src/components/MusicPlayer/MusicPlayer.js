@@ -161,18 +161,18 @@ export default function MusicPlayer() {
                     ></div>
                     <div className="music-player-title">Now Playing</div>
                     <div className="artist-thumbnail">
-                        <img src="/images/music/auv.png" alt="Artist Thumbnail" />
+                        <img src={`${process.env.NEXT_PUBLIC_CDN_BASE}music/auv.png`} alt="Artist Thumbnail" />
                     </div>
                     <div className="music-player-track-info">{TRACK_NAMES[currentIndex]}</div>
                     <div className="music-player-track-info pointer-events-auto"><button>auv</button></div>
                     <div className="music-player-controls">
-                        <button onClick={previousTrack}><img src="/images/music/prev-track.png"></img></button>
-                        <button onClick={toggleSound}>{isPlaying ? <img src="/images/music/pause.png"></img> : <img src="/images/music/play.png"></img>}</button>
-                        <button onClick={nextTrack}><img src="/images/music/next-track.png"></img></button>
-                        <button className="mute-button" onClick={toggleMute}>{isMuted ? <img src="/images/music/muted.png"></img> : <img src="/images/music/volume.png"></img>}</button>
+                        <button onClick={previousTrack}><img src={`${process.env.NEXT_PUBLIC_CDN_BASE}music/prev-track.png`}></img></button>
+                        <button onClick={toggleSound}>{isPlaying ? <img src={`${process.env.NEXT_PUBLIC_CDN_BASE}music/pause.png`}></img> : <img src={`${process.env.NEXT_PUBLIC_CDN_BASE}music/play.png`}></img>}</button>
+                        <button onClick={nextTrack}><img src={`${process.env.NEXT_PUBLIC_CDN_BASE}music/next-track.png`}></img></button>
+                        <button className="mute-button" onClick={toggleMute}>{isMuted ? <img src={`${process.env.NEXT_PUBLIC_CDN_BASE}music/muted.png`}></img> : <img src={`${process.env.NEXT_PUBLIC_CDN_BASE}music/volume.png`}></img>}</button>
                     </div>
                     <div className="music-player-controls">
-                        <button onClick={openIdleScreen} title="Open Visualizer"><img src="/images/music/visual.svg" alt="Visualizer"></img></button>
+                        <button onClick={openIdleScreen} title="Open Visualizer"><img src="images/music/visual.svg" alt="Visualizer"></img></button>
                     </div>
                     <div className="music-player-volume">
                         <input
