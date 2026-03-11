@@ -46,13 +46,13 @@ export default function WindowControls({ panelName, maximized }) {
     return (
         <div className="window-controls">
             <div className="window-control-button" onClick={() => closeWindow(panelName)}>
-                <img className="window-control-icon" src="/images/WindowControls/remove.png" alt="Minimize Icon"/>
+                <img className="window-control-icon" src={`${process.env.NEXT_PUBLIC_CDN_BASE}WindowControls/remove.png`} alt="Minimize Icon"/>
             </div>
             <div className="window-control-button" onClick={() => maximizeWindow(panelName)}>
-                <img className="window-control-icon" src="/images/WindowControls/stop.png" alt="Maximize Icon"/>
+                <img className="window-control-icon" src={`${process.env.NEXT_PUBLIC_CDN_BASE}WindowControls/stop.png`} alt="Maximize Icon"/>
             </div>
             <div className="window-control-button close" onClick={() => closeWindow(panelName)}>
-                <img className="window-control-icon" src="/images/WindowControls/close.png" alt="Close Icon"/>
+                <img className="window-control-icon" src={`${process.env.NEXT_PUBLIC_CDN_BASE}WindowControls/close.png`} alt="Close Icon"/>
             </div>
         </div>
     );

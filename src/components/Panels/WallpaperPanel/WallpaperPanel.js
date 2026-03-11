@@ -29,7 +29,7 @@ export default function WallpaperPanel(){
                 <div className="wallpaper-panel-grid">
                     {wallpaperFiles.map(([thumbnail, wallpaper]) => (
                         <div key={wallpaper} className="wallpaper-item" onClick={() => setAsWallpaper(wallpaper)}>
-                            <img src={`/images/wallpaper_thumbnails/${thumbnail}`} alt={`Wallpaper ${wallpaper}`} className="wallpaper-image" loading="lazy" decoding="async"/>
+                            <img src={`${process.env.NEXT_PUBLIC_CDN_BASE}wallpaper_thumbnails/${encodeURIComponent(thumbnail)}`} alt={`Wallpaper ${wallpaper}`} className="wallpaper-image" loading="lazy" decoding="async"/>
                             <p>Set As Wallpaper</p>
                         </div>
                     ))}
