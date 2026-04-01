@@ -113,6 +113,10 @@ export default function DesktopContent(){
                     <img src={`${process.env.NEXT_PUBLIC_CDN_BASE}icons/pantry.svg`} alt="Home Icon" className="icon-image"/>
                     <span className="icon-label">PantryPal</span>
                 </div>
+                <div className="icon-item" onClick={doClickHighlight} onDoubleClick={() => window.open('https://haurakiengineering.co.nz', '_blank')}>
+                    <img src={`${process.env.NEXT_PUBLIC_CDN_BASE}icons/hauraki.png`} alt="Home Icon" className="icon-image"/>
+                    <span className="icon-label">Hauraki Engineering</span>
+                </div>
             </div>
 
             <div className="welcome-panel-active" name="welcome" onClick={() => togglePanels('welcome')}>
