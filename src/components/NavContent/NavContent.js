@@ -109,16 +109,6 @@ export default function NavContent(){
                         className="nav-item"
                         type='button'
                         onClick={() => {
-                            window.open('https://www.google.com', '_blank');
-                        }}
-                        aria-label='google'
-                    >
-                        <img src={`${process.env.NEXT_PUBLIC_CDN_BASE}icons/google.png`} />
-                    </button>
-                    <button 
-                        className="nav-item"
-                        type='button'
-                        onClick={() => {
                             togglePanels('welcome');
                         }}
                         aria-label='text'
@@ -164,6 +154,16 @@ export default function NavContent(){
                         aria-label='pantry'
                     >
                         <img src={`${process.env.NEXT_PUBLIC_CDN_BASE}icons/pantry.svg`} />
+                    </button>
+                    <button
+                        className="nav-item"
+                        type='button'                        
+                        onClick={() => {
+                            window.open('https://haurakiengineering.co.nz', '_blank');
+                        }}
+                        aria-label='hauraki engineering'
+                    >
+                        <img src={`${process.env.NEXT_PUBLIC_CDN_BASE}icons/hauraki.png`} />
                     </button>
                 </div>
 
